@@ -1,6 +1,6 @@
-# For Vercel: use normal Next build (not static export) so env vars inject at build time.
 import type { NextConfig } from "next";
 
+// Normal Next build for Vercel (env vars inject at build time).
 const nextConfig: NextConfig = {
   images: { unoptimized: true },
 };
