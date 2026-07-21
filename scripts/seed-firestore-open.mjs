@@ -1,12 +1,24 @@
 /**
- * Seed Firestore without Auth (requires open rules).
- * After seeding, redeploy locked-down rules and enable Email/Password in Console.
+ * Seed a small Keele campus set and delete leftover rooms/buildings.
+ * Requires open-enough Firestore rules (or Auth). Clears emulator host.
+ *
+ *   node scripts/seed-firestore-open.mjs
  */
 import { readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { initializeApp } from "firebase/app";
-import { doc, getFirestore, writeBatch } from "firebase/firestore";
+import {
+  collection,
+  deleteDoc,
+  doc,
+  getDocs,
+  getFirestore,
+  writeBatch,
+} from "firebase/firestore";
+
+delete process.env.FIRESTORE_EMULATOR_HOST;
+delete process.env.FIREBASE_AUTH_EMULATOR_HOST;
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const seed = JSON.parse(
@@ -22,6 +34,25 @@ const app = initializeApp({
   appId: "1:59014413277:web:72c9e4b9ec01be32c19434",
 });
 const db = getFirestore(app);
+
+const keepBuildings = new Set(seed.buildings.map((b) => b.id));
+const keepRooms = new Set(seed.rooms.map((r) => r.id));
+
+async function prune(colName, keep) {
+  const snap = await getDocs(collection(db, colName));
+  let removed = 0;
+  for (const d of snap.docs) {
+    if (!keep.has(d.id)) {
+      await deleteDoc(d.ref);
+      removed += 1;
+    }
+  }
+  return removed;
+}
+
+const removedBuildings = await prune("buildings", keepBuildings);
+const removedRooms = await prune("rooms", keepRooms);
+
 const now = Date.now();
 const batch = writeBatch(db);
 
@@ -62,4 +93,6 @@ batch.set(doc(db, "devices", "demo"), {
 });
 
 await batch.commit();
-console.log(`Seeded ${seed.buildings.length} buildings, ${seed.rooms.length} rooms`);
+console.log(
+  `Seeded ${seed.buildings.length} buildings, ${seed.rooms.length} rooms (removed ${removedBuildings} buildings, ${removedRooms} rooms)`
+);

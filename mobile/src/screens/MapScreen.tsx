@@ -36,7 +36,7 @@ export function MapScreen({ onOpenRoom, onOpenAlerts }: Props) {
         const hay = `${room.name} ${room.number} ${b?.name ?? ""} ${b?.code ?? ""}`.toLowerCase();
         return hay.includes(term);
       })
-      .slice(0, 50);
+      .slice(0, 6);
   }, [rooms, buildings, query, selectedBuildingId]);
 
   return (
@@ -106,7 +106,7 @@ export function MapScreen({ onOpenRoom, onOpenAlerts }: Props) {
         <FlatList
           data={filteredRooms}
           keyExtractor={(item) => item.id}
-          style={{ maxHeight: 220 }}
+          style={{ maxHeight: 160 }}
           renderItem={({ item }) => (
             <RoomRow
               room={item}
@@ -203,6 +203,7 @@ const styles = StyleSheet.create({
     padding: 14,
     borderTopWidth: 1,
     borderColor: "#d5cdc0",
+    maxHeight: 280,
   },
   search: {
     backgroundColor: "#fffdf8",

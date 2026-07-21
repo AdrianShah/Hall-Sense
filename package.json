@@ -13,9 +13,10 @@
     "push:test": "node scripts/push-test.mjs",
     "web": "npm --prefix web run dev",
     "web:build": "npm --prefix web run build",
-    "mobile": "npm --prefix mobile run start:tunnel",
+    "mobile": "npm --prefix mobile run start:lan",
     "mobile:tunnel": "npm --prefix mobile run start:tunnel",
     "mobile:lan": "npm --prefix mobile run start:lan",
+    "arduino:test": "python scripts/test-arduino.py",
     "deploy:hosting": "npm --prefix web run build && firebase deploy --only hosting,firestore:rules"
   },
   "devDependencies": {

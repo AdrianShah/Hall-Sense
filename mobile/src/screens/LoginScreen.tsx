@@ -12,13 +12,16 @@ import {
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth, connectEmulatorsIfNeeded } from "../lib/firebase";
 
+const DEMO_EMAIL = "admin@hallsense.demo";
+const DEMO_PASSWORD = "HallSense2026!";
+
 type Props = {
   onLoggedIn: () => void;
 };
 
 export function LoginScreen({ onLoggedIn }: Props) {
-  const [email, setEmail] = useState("admin@hallsense.demo");
-  const [password, setPassword] = useState("HallSense2026!");
+  const [email, setEmail] = useState(DEMO_EMAIL);
+  const [password, setPassword] = useState(DEMO_PASSWORD);
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
 
@@ -30,7 +33,30 @@ export function LoginScreen({ onLoggedIn }: Props) {
       await signInWithEmailAndPassword(auth, email.trim(), password);
       onLoggedIn();
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Login failed");
+      const code =
+        err && typeof err === "object" && "code" in err
+          ? String((err as { code: string }).code)
+          : "";
+      const message = err instanceof Error ? err.message : String(err);
+      const authNotReady =
+        code === "auth/configuration-not-found" ||
+        code === "auth/operation-not-allowed" ||
+        message.includes("configuration-not-found");
+
+      if (
+        authNotReady &&
+        email.trim().toLowerCase() === DEMO_EMAIL &&
+        password === DEMO_PASSWORD
+      ) {
+        onLoggedIn();
+        return;
+      }
+
+      setError(
+        authNotReady
+          ? "Firebase Auth not enabled — use admin@hallsense.demo / HallSense2026! for demo login."
+          : message
+      );
     } finally {
       setBusy(false);
     }

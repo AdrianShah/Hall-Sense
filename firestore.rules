@@ -1,33 +1,9 @@
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
-    match /buildings/{id} {
-      allow read: if true;
-      allow write: if request.auth != null;
-    }
-    match /rooms/{id} {
-      allow read: if true;
-      allow write: if request.auth != null;
-    }
-    match /readings/{id} {
-      allow read: if true;
-      allow write: if true;
-    }
-    match /readings_latest/{id} {
-      allow read: if true;
-      allow write: if true;
-    }
-    match /devices/{id} {
-      allow read: if true;
-      allow write: if true;
-    }
-    match /users/{id} {
-      allow read: if request.auth != null && request.auth.uid == id;
-      allow write: if request.auth != null && request.auth.uid == id;
-    }
-    match /config/{id} {
-      allow read: if true;
-      allow write: if request.auth != null;
+    // Demo-friendly rules for ENG 1102 prototype (tighten after Auth is enabled).
+    match /{document=**} {
+      allow read, write: if true;
     }
   }
 }

@@ -35,7 +35,7 @@ export function SearchPanel({
         if (!term) return true;
         return hay.includes(term);
       })
-      .slice(0, 40);
+      .slice(0, 6);
 
     const buildingHits =
       term.length === 0
@@ -49,7 +49,7 @@ export function SearchPanel({
   }, [buildings, rooms, q, selectedBuildingId]);
 
   return (
-    <section className="panel flex h-full min-h-[28rem] flex-col">
+    <section className="panel flex h-full flex-col">
       <p className="eyebrow">Pre-class check</p>
       <h2 className="section-title mt-1">Search Keele halls</h2>
       <input
@@ -79,7 +79,7 @@ export function SearchPanel({
         ))}
       </div>
 
-      <ul className="mt-4 flex-1 space-y-2 overflow-y-auto pr-1">
+      <ul className="mt-4 space-y-2">
         {results.roomHits.map(({ room, building }) => {
           const hot = isOverheat(room.tempC);
           return (

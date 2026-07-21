@@ -4,7 +4,7 @@ import { useState, type FormEvent } from "react";
 import { useAuth } from "@/lib/auth-context";
 
 export function LoginPanel() {
-  const { user, loading, login, logout } = useAuth();
+  const { user, isAdmin, loading, login, logout } = useAuth();
   const [email, setEmail] = useState("admin@hallsense.demo");
   const [password, setPassword] = useState("HallSense2026!");
   const [error, setError] = useState<string | null>(null);
@@ -27,11 +27,14 @@ export function LoginPanel() {
     return <p className="text-sm text-[var(--muted)]">Checking session…</p>;
   }
 
-  if (user) {
+  if (isAdmin) {
     return (
       <div className="flex flex-wrap items-center gap-3">
         <span className="text-sm text-[var(--muted)]">
-          Admin: <strong className="text-[var(--ink)]">{user.email}</strong>
+          Admin:{" "}
+          <strong className="text-[var(--ink)]">
+            {user?.email ?? "admin@hallsense.demo (demo)"}
+          </strong>
         </span>
         <button type="button" className="btn-ghost" onClick={() => logout()}>
           Sign out
