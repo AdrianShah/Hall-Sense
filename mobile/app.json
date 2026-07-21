@@ -1,0 +1,60 @@
+{
+  "expo": {
+    "name": "HallSense",
+    "slug": "hallsense",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "scheme": "hallsense",
+    "splash": {
+      "image": "./assets/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#e8efe8"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "demo.hallsense.app",
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "HallSense shows Keele campus lecture hall locations on the map."
+      }
+    },
+    "android": {
+      "package": "demo.hallsense.app",
+      "adaptiveIcon": {
+        "backgroundColor": "#e8efe8",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "permissions": [
+        "RECEIVE_BOOT_COMPLETED",
+        "VIBRATE",
+        "POST_NOTIFICATIONS",
+        "ACCESS_COARSE_LOCATION",
+        "ACCESS_FINE_LOCATION"
+      ],
+      "predictiveBackGestureEnabled": false
+    },
+    "plugins": [
+      [
+        "expo-notifications",
+        {
+          "color": "#1f6b4a"
+        }
+      ]
+    ],
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "useEmulator": "false",
+      "firebaseApiKey": "AIzaSyBw07M1-g7RWaqfIkzGH7YliriO9r8sDRo",
+      "firebaseAuthDomain": "hallsense-e2b8c.firebaseapp.com",
+      "firebaseProjectId": "hallsense-e2b8c",
+      "firebaseStorageBucket": "hallsense-e2b8c.firebasestorage.app",
+      "firebaseMessagingSenderId": "59014413277",
+      "firebaseAppId": "1:59014413277:web:72c9e4b9ec01be32c19434"
+    }
+  }
+}

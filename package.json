@@ -1,0 +1,28 @@
+{
+  "name": "hallsense",
+  "private": true,
+  "version": "1.0.0",
+  "description": "HallSense — YorkU Keele lecture hall temperature alert prototype",
+  "scripts": {
+    "seed": "node scripts/seed-firestore.mjs",
+    "seed:prod": "node scripts/seed-firestore-open.mjs",
+    "seed:admin": "node scripts/seed-client.mjs",
+    "emulators": "firebase emulators:start --only auth,firestore",
+    "bridge": "python bridge/main.py",
+    "bridge:sim": "python bridge/main.py --sim",
+    "push:test": "node scripts/push-test.mjs",
+    "web": "npm --prefix web run dev",
+    "web:build": "npm --prefix web run build",
+    "mobile": "npm --prefix mobile run start:tunnel",
+    "mobile:tunnel": "npm --prefix mobile run start:tunnel",
+    "mobile:lan": "npm --prefix mobile run start:lan",
+    "deploy:hosting": "npm --prefix web run build && firebase deploy --only hosting,firestore:rules"
+  },
+  "devDependencies": {
+    "firebase-admin": "^13.4.0",
+    "firebase-tools": "^14.9.0"
+  },
+  "dependencies": {
+    "firebase": "^11.10.0"
+  }
+}

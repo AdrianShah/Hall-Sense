@@ -1,0 +1,98 @@
+{
+  "liveRoomId": "vari-a",
+  "thresholdC": 25,
+  "buildings": [
+    {
+      "id": "vari",
+      "name": "Vari Hall",
+      "code": "VH",
+      "lat": 43.7735,
+      "lng": -79.5019
+    },
+    {
+      "id": "curtis",
+      "name": "Curtis Lecture Halls",
+      "code": "CLH",
+      "lat": 43.7731,
+      "lng": -79.5052
+    },
+    {
+      "id": "lassonde",
+      "name": "Lassonde Building",
+      "code": "LAS",
+      "lat": 43.7741,
+      "lng": -79.5058
+    },
+    {
+      "id": "bergeron",
+      "name": "Bergeron Centre",
+      "code": "BRG",
+      "lat": 43.7718,
+      "lng": -79.5065
+    },
+    {
+      "id": "accolade-e",
+      "name": "Accolade East",
+      "code": "ACE",
+      "lat": 43.7726,
+      "lng": -79.5012
+    },
+    {
+      "id": "accolade-w",
+      "name": "Accolade West",
+      "code": "ACW",
+      "lat": 43.7728,
+      "lng": -79.5024
+    },
+    {
+      "id": "lsb",
+      "name": "Life Sciences Building",
+      "code": "LSB",
+      "lat": 43.7746,
+      "lng": -79.5081
+    }
+  ],
+  "rooms": [
+    { "id": "vari-a", "buildingId": "vari", "name": "Lecture Hall A", "number": "A", "tempC": 22.4, "humidity": 48, "source": "live" },
+    { "id": "vari-b", "buildingId": "vari", "name": "Lecture Hall B", "number": "B", "tempC": 23.1, "humidity": 51, "source": "mock" },
+    { "id": "vari-c", "buildingId": "vari", "name": "Lecture Hall C", "number": "C", "tempC": 26.2, "humidity": 55, "source": "mock" },
+    { "id": "vari-d", "buildingId": "vari", "name": "Lecture Hall D", "number": "D", "tempC": 21.8, "humidity": 47, "source": "mock" },
+    { "id": "vari-e", "buildingId": "vari", "name": "Room 1152", "number": "1152", "tempC": 24.0, "humidity": 50, "source": "mock" },
+    { "id": "vari-f", "buildingId": "vari", "name": "Room 1002", "number": "1002", "tempC": 22.7, "humidity": 49, "source": "mock" },
+
+    { "id": "curtis-a", "buildingId": "curtis", "name": "CLH A", "number": "A", "tempC": 23.5, "humidity": 52, "source": "mock" },
+    { "id": "curtis-b", "buildingId": "curtis", "name": "CLH B", "number": "B", "tempC": 25.8, "humidity": 58, "source": "mock" },
+    { "id": "curtis-c", "buildingId": "curtis", "name": "CLH C", "number": "C", "tempC": 22.0, "humidity": 46, "source": "mock" },
+    { "id": "curtis-d", "buildingId": "curtis", "name": "CLH D", "number": "D", "tempC": 24.3, "humidity": 53, "source": "mock" },
+    { "id": "curtis-e", "buildingId": "curtis", "name": "CLH E", "number": "E", "tempC": 21.5, "humidity": 45, "source": "mock" },
+    { "id": "curtis-f", "buildingId": "curtis", "name": "CLH F", "number": "F", "tempC": 26.5, "humidity": 60, "source": "mock" },
+
+    { "id": "las-c", "buildingId": "lassonde", "name": "LAS C", "number": "C", "tempC": 22.9, "humidity": 50, "source": "mock" },
+    { "id": "las-b", "buildingId": "lassonde", "name": "LAS B", "number": "B", "tempC": 24.1, "humidity": 52, "source": "mock" },
+    { "id": "las-1002", "buildingId": "lassonde", "name": "Room 1002", "number": "1002", "tempC": 23.3, "humidity": 49, "source": "mock" },
+    { "id": "las-1006", "buildingId": "lassonde", "name": "Room 1006", "number": "1006", "tempC": 25.4, "humidity": 56, "source": "mock" },
+    { "id": "las-3033", "buildingId": "lassonde", "name": "Room 3033", "number": "3033", "tempC": 21.9, "humidity": 47, "source": "mock" },
+    { "id": "las-3050", "buildingId": "lassonde", "name": "Room 3050", "number": "3050", "tempC": 22.6, "humidity": 48, "source": "mock" },
+
+    { "id": "brg-011", "buildingId": "bergeron", "name": "Room 011", "number": "011", "tempC": 23.0, "humidity": 50, "source": "mock" },
+    { "id": "brg-125", "buildingId": "bergeron", "name": "Room 125", "number": "125", "tempC": 26.1, "humidity": 57, "source": "mock" },
+    { "id": "brg-211", "buildingId": "bergeron", "name": "Room 211", "number": "211", "tempC": 22.2, "humidity": 46, "source": "mock" },
+    { "id": "brg-313", "buildingId": "bergeron", "name": "Room 313", "number": "313", "tempC": 24.7, "humidity": 54, "source": "mock" },
+
+    { "id": "ace-001", "buildingId": "accolade-e", "name": "ACE 001", "number": "001", "tempC": 23.8, "humidity": 51, "source": "mock" },
+    { "id": "ace-002", "buildingId": "accolade-e", "name": "ACE 002", "number": "002", "tempC": 22.1, "humidity": 48, "source": "mock" },
+    { "id": "ace-003", "buildingId": "accolade-e", "name": "ACE 003", "number": "003", "tempC": 25.2, "humidity": 55, "source": "mock" },
+    { "id": "ace-109", "buildingId": "accolade-e", "name": "ACE 109", "number": "109", "tempC": 21.6, "humidity": 45, "source": "mock" },
+
+    { "id": "acw-005", "buildingId": "accolade-w", "name": "ACW 005", "number": "005", "tempC": 24.4, "humidity": 53, "source": "mock" },
+    { "id": "acw-006", "buildingId": "accolade-w", "name": "ACW 006", "number": "006", "tempC": 23.2, "humidity": 50, "source": "mock" },
+    { "id": "acw-106", "buildingId": "accolade-w", "name": "ACW 106", "number": "106", "tempC": 26.8, "humidity": 59, "source": "mock" },
+    { "id": "acw-206", "buildingId": "accolade-w", "name": "ACW 206", "number": "206", "tempC": 22.5, "humidity": 47, "source": "mock" },
+
+    { "id": "lsb-101", "buildingId": "lsb", "name": "LSB 101", "number": "101", "tempC": 22.8, "humidity": 49, "source": "mock" },
+    { "id": "lsb-103", "buildingId": "lsb", "name": "LSB 103", "number": "103", "tempC": 24.9, "humidity": 54, "source": "mock" },
+    { "id": "lsb-105", "buildingId": "lsb", "name": "LSB 105", "number": "105", "tempC": 21.4, "humidity": 44, "source": "mock" },
+    { "id": "lsb-203", "buildingId": "lsb", "name": "LSB 203", "number": "203", "tempC": 25.6, "humidity": 56, "source": "mock" },
+    { "id": "lsb-305", "buildingId": "lsb", "name": "LSB 305", "number": "305", "tempC": 23.4, "humidity": 51, "source": "mock" }
+  ]
+}
