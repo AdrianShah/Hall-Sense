@@ -3,13 +3,16 @@
 import { useState, type FormEvent } from "react";
 import { useAuth } from "@/lib/auth-context";
 
+const DEMO_USERNAME = "demo";
+const DEMO_PASSWORD = "HallSense2026!";
+
 type Mode = "login" | "signup";
 
 export function LoginPanel() {
   const { user, profile, loading, login, signup, logout } = useAuth();
   const [mode, setMode] = useState<Mode>("login");
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState(DEMO_USERNAME);
+  const [password, setPassword] = useState(DEMO_PASSWORD);
   const [displayName, setDisplayName] = useState("");
   const [studentNumber, setStudentNumber] = useState("");
   const [error, setError] = useState<string | null>(null);
@@ -119,6 +122,11 @@ export function LoginPanel() {
           {busy ? (mode === "signup" ? "Creating…" : "Signing in…") : mode === "signup" ? "Create account" : "Sign in"}
         </button>
         {error ? <p className="text-sm text-[var(--alert)]">{error}</p> : null}
+        {mode === "login" ? (
+          <p className="text-xs text-[var(--muted)]">
+            Demo: <strong>demo</strong> / <strong>HallSense2026!</strong>
+          </p>
+        ) : null}
       </form>
     </div>
   );

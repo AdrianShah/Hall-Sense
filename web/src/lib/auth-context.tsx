@@ -95,10 +95,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       sessionStorage.removeItem("hallsense_demo_admin");
     }
     const unsub = onAuthStateChanged(auth, (next) => {
+      // Always clear profile when auth user changes so favourites never bleed
+      setProfile(null);
       setUser(next);
       if (!next) {
-        setProfile(null);
         setLoading(false);
+      } else {
+        setLoading(true);
       }
     });
     return unsub;
@@ -106,7 +109,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     if (!user) return;
+    let cancelled = false;
     const unsub = onSnapshot(doc(db, "users", user.uid), (snap) => {
+      if (cancelled) return;
       if (snap.exists()) {
         setProfile({ uid: user.uid, ...snap.data() } as UserProfile);
       } else {
@@ -114,7 +119,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       }
       setLoading(false);
     });
-    return unsub;
+    return () => {
+      cancelled = true;
+      unsub();
+    };
   }, [user]);
 
   const signup = useCallback(
@@ -151,10 +159,36 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   );
 
   const login = useCallback(async (username: string, password: string) => {
-    const email = usernameToEmail(username);
+    const cleanUsername = username.toLowerCase().trim();
+    const email = usernameToEmail(cleanUsername);
     try {
       await signInWithEmailAndPassword(auth, email, password);
     } catch (err) {
+      const code = authErrorCode(err);
+      const isDemo =
+        cleanUsername === "demo" && password === "HallSense2026!";
+      const missing =
+        code === "auth/user-not-found" || code === "auth/invalid-credential";
+      // First-time demo bootstrap for presentations
+      if (isDemo && missing) {
+        try {
+          const cred = await createUserWithEmailAndPassword(auth, email, password);
+          const now = Date.now();
+          await setDoc(doc(db, "users", cred.user.uid), {
+            username: "demo",
+            displayName: "Demo User",
+            favouriteRoomIds: [],
+            onboardingComplete: true,
+            theme: "system",
+            createdAt: now,
+            updatedAt: now,
+          });
+          await setDoc(doc(db, "usernames", "demo"), { uid: cred.user.uid });
+          return;
+        } catch (createErr) {
+          throw friendlyAuthError(createErr);
+        }
+      }
       throw friendlyAuthError(err);
     }
   }, []);

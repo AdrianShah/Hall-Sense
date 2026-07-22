@@ -11,13 +11,17 @@ import {
 } from "react-native";
 import { useAuth } from "../lib/auth-context";
 
+/** Shared demo account for ENG 1102 presentations */
+export const DEMO_USERNAME = "demo";
+export const DEMO_PASSWORD = "HallSense2026!";
+
 type Mode = "login" | "signup";
 
 export function LoginScreen() {
   const { login, signup } = useAuth();
   const [mode, setMode] = useState<Mode>("login");
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState(DEMO_USERNAME);
+  const [password, setPassword] = useState(DEMO_PASSWORD);
   const [displayName, setDisplayName] = useState("");
   const [studentNumber, setStudentNumber] = useState("");
   const [error, setError] = useState<string | null>(null);
@@ -104,6 +108,9 @@ export function LoginScreen() {
           onChangeText={setPassword}
         />
         {error ? <Text style={styles.error}>{error}</Text> : null}
+        {mode === "login" ? (
+          <Text style={styles.hint}>Demo: demo / HallSense2026!</Text>
+        ) : null}
         <Pressable style={styles.button} onPress={submit} disabled={busy}>
           {busy ? (
             <ActivityIndicator color="#f4fff8" />
@@ -198,5 +205,10 @@ const styles = StyleSheet.create({
   error: {
     marginTop: 10,
     color: "#c45c26",
+  },
+  hint: {
+    marginTop: 10,
+    color: "#5c6b64",
+    fontSize: 13,
   },
 });

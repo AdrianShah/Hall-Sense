@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { ActivityIndicator, StyleSheet, View } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import { NavigationContainer } from "@react-navigation/native";
@@ -11,6 +10,7 @@ import { SearchScreen } from "./src/screens/SearchScreen";
 import { MapScreen } from "./src/screens/MapScreen";
 import { RoomDetailScreen } from "./src/screens/RoomDetailScreen";
 import { AlertsScreen } from "./src/screens/AlertsScreen";
+import { SettingsScreen } from "./src/screens/SettingsScreen";
 
 export type RootStackParamList = {
   Login: undefined;
@@ -20,6 +20,7 @@ export type RootStackParamList = {
   Map: undefined;
   Room: { roomId: string };
   Alerts: undefined;
+  Settings: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -56,7 +57,7 @@ function AppNavigator() {
                   onOpenSearch={() => navigation.navigate("Search")}
                   onOpenMap={() => navigation.navigate("Map")}
                   onOpenAlerts={() => navigation.navigate("Alerts")}
-                  onOpenSettings={() => {}}
+                  onOpenSettings={() => navigation.navigate("Settings")}
                 />
               )}
             </Stack.Screen>
@@ -72,7 +73,7 @@ function AppNavigator() {
               {({ navigation }) => (
                 <MapScreen
                   onOpenRoom={(roomId) => navigation.navigate("Room", { roomId })}
-                  onOpenAlerts={() => navigation.navigate("Alerts")}
+                  onBack={() => navigation.goBack()}
                 />
               )}
             </Stack.Screen>
@@ -86,6 +87,9 @@ function AppNavigator() {
             </Stack.Screen>
             <Stack.Screen name="Alerts">
               {({ navigation }) => <AlertsScreen onBack={() => navigation.goBack()} />}
+            </Stack.Screen>
+            <Stack.Screen name="Settings">
+              {({ navigation }) => <SettingsScreen onBack={() => navigation.goBack()} />}
             </Stack.Screen>
           </>
         )}

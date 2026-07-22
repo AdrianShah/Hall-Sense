@@ -9,20 +9,17 @@ import {
 } from "react-native";
 import MapView, { Marker, Callout } from "react-native-maps";
 import { useCampusData } from "../hooks/useCampusData";
-import { isOverheat, type Building, type Room } from "../lib/types";
-import { KEELE_CENTER, LIVE_ROOM_ID, THRESHOLD_C } from "../lib/firebase";
+import { isOverheat } from "../lib/types";
+import { KEELE_CENTER, LIVE_ROOM_ID } from "../lib/firebase";
 
 type Props = {
   onOpenRoom: (roomId: string) => void;
-  onOpenAlerts: () => void;
+  onBack: () => void;
 };
 
-export function MapScreen({ onOpenRoom, onOpenAlerts }: Props) {
-  const { buildings, rooms, latest } = useCampusData();
+export function MapScreen({ onOpenRoom, onBack }: Props) {
+  const { buildings, rooms } = useCampusData();
   const [query, setQuery] = useState("");
-
-  const liveTemp = latest?.t ?? rooms.find((r) => r.id === LIVE_ROOM_ID)?.tempC;
-  const liveHot = liveTemp != null ? isOverheat(liveTemp) : false;
 
   const filteredRooms = useMemo(() => {
     const term = query.trim().toLowerCase();
@@ -40,6 +37,9 @@ export function MapScreen({ onOpenRoom, onOpenAlerts }: Props) {
   return (
     <View style={styles.root}>
       <View style={styles.header}>
+        <Pressable onPress={onBack}>
+          <Text style={styles.back}>← Home</Text>
+        </Pressable>
         <Text style={styles.brand}>Campus Map</Text>
       </View>
 
@@ -118,6 +118,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: "#d5cdc0",
   },
+  back: { color: "#1f6b4a", fontWeight: "700", marginBottom: 8 },
   brand: { fontSize: 24, fontWeight: "700", color: "#154c35" },
   map: { flex: 1 },
   sheet: {
