@@ -7,6 +7,8 @@ import { KEELE_CENTER, isOverheat, type Building, type Room } from "@/lib/types"
 
 import "leaflet/dist/leaflet.css";
 
+const FEATURED_ORDER = ["curtis", "vari", "lassonde"];
+
 type Props = {
   buildings: Building[];
   rooms: Room[];
@@ -60,11 +62,23 @@ export default function CampusMap({
     return map;
   }, [rooms]);
 
+  const mapBuildings = useMemo(() => {
+    const featured = buildings.filter(
+      (b) => b.featured || FEATURED_ORDER.includes(b.id)
+    );
+    return FEATURED_ORDER.map((id) => featured.find((b) => b.id === id)).filter(
+      (b): b is Building => Boolean(b)
+    );
+  }, [buildings]);
+
   return (
     <section className="panel overflow-hidden p-0">
       <div className="border-b border-[var(--line)] px-5 py-4">
         <p className="eyebrow">YorkU Keele campus</p>
-        <h2 className="section-title mt-1">Building temperatures</h2>
+        <h2 className="section-title mt-1">CLH · Vari · LAS</h2>
+        <p className="mt-1 text-sm text-[var(--muted)]">
+          Main halls on the map — search any Keele room in the panel.
+        </p>
       </div>
       <div className="h-[28rem] w-full">
         <MapContainer
@@ -78,7 +92,7 @@ export default function CampusMap({
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
           <FocusMap buildings={buildings} selectedBuildingId={selectedBuildingId} />
-          {buildings.map((b) => {
+          {mapBuildings.map((b) => {
             const buildingRooms = roomsByBuilding.get(b.id) ?? [];
             const hotCount = buildingRooms.filter((r) => isOverheat(r.tempC)).length;
             const selected = selectedBuildingId === b.id;

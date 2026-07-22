@@ -48,6 +48,9 @@
       "favicon": "./assets/favicon.png"
     },
     "extra": {
+      "eas": {
+        "projectId": "ce0352d8-73da-462a-9ae2-52292b3f7e68"
+      },
       "useEmulator": "false",
       "firebaseApiKey": "AIzaSyBw07M1-g7RWaqfIkzGH7YliriO9r8sDRo",
       "firebaseAuthDomain": "hallsense-e2b8c.firebaseapp.com",
@@ -55,6 +58,7 @@
       "firebaseStorageBucket": "hallsense-e2b8c.firebasestorage.app",
       "firebaseMessagingSenderId": "59014413277",
       "firebaseAppId": "1:59014413277:web:72c9e4b9ec01be32c19434"
-    }
+    },
+    "owner": "adrianshah"
   }
 }

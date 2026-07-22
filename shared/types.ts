@@ -14,6 +14,7 @@ export type Building = {
   code: string;
   lat: number;
   lng: number;
+  featured?: boolean;
 };
 
 export type RoomSource = "mock" | "live";
@@ -26,6 +27,7 @@ export type Room = {
   tempC: number;
   humidity: number;
   source: RoomSource;
+  overheat?: boolean;
   updatedAt?: number;
 };
 
@@ -36,6 +38,20 @@ export type Reading = {
   h: number;
   overheat: boolean;
   ts: number;
+};
+
+export type ThemePreference = "light" | "dark" | "system";
+
+export type UserProfile = {
+  uid: string;
+  username: string;
+  displayName: string;
+  studentNumber?: string;
+  favouriteRoomIds: string[];
+  onboardingComplete: boolean;
+  theme: ThemePreference;
+  createdAt: number;
+  updatedAt: number;
 };
 
 export function isOverheat(tempC: number, threshold = THRESHOLD_C): boolean {

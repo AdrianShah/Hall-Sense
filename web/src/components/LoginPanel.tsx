@@ -3,10 +3,15 @@
 import { useState, type FormEvent } from "react";
 import { useAuth } from "@/lib/auth-context";
 
+type Mode = "login" | "signup";
+
 export function LoginPanel() {
-  const { user, isAdmin, loading, login, logout } = useAuth();
-  const [email, setEmail] = useState("admin@hallsense.demo");
-  const [password, setPassword] = useState("HallSense2026!");
+  const { user, profile, loading, login, signup, logout } = useAuth();
+  const [mode, setMode] = useState<Mode>("login");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [displayName, setDisplayName] = useState("");
+  const [studentNumber, setStudentNumber] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
 
@@ -15,9 +20,13 @@ export function LoginPanel() {
     setBusy(true);
     setError(null);
     try {
-      await login(email, password);
+      if (mode === "signup") {
+        await signup(username, password, displayName || username, studentNumber || undefined);
+      } else {
+        await login(username, password);
+      }
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Login failed");
+      setError(err instanceof Error ? err.message : "Something went wrong");
     } finally {
       setBusy(false);
     }
@@ -27,13 +36,12 @@ export function LoginPanel() {
     return <p className="text-sm text-[var(--muted)]">Checking session…</p>;
   }
 
-  if (isAdmin) {
+  if (user) {
     return (
       <div className="flex flex-wrap items-center gap-3">
         <span className="text-sm text-[var(--muted)]">
-          Admin:{" "}
           <strong className="text-[var(--ink)]">
-            {user?.email ?? "admin@hallsense.demo (demo)"}
+            {profile?.displayName ?? profile?.username ?? "User"}
           </strong>
         </span>
         <button type="button" className="btn-ghost" onClick={() => logout()}>
@@ -44,30 +52,74 @@ export function LoginPanel() {
   }
 
   return (
-    <form onSubmit={onSubmit} className="flex flex-wrap items-end gap-2">
-      <label className="flex flex-col gap-1 text-xs text-[var(--muted)]">
-        Email
-        <input
-          className="input"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          autoComplete="username"
-        />
-      </label>
-      <label className="flex flex-col gap-1 text-xs text-[var(--muted)]">
-        Password
-        <input
-          className="input"
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          autoComplete="current-password"
-        />
-      </label>
-      <button type="submit" className="btn" disabled={busy}>
-        {busy ? "Signing in…" : "Admin login"}
-      </button>
-      {error ? <p className="w-full text-sm text-[var(--alert)]">{error}</p> : null}
-    </form>
+    <div className="w-full max-w-sm">
+      <div className="mb-3 flex gap-2">
+        <button
+          type="button"
+          className={`chip ${mode === "login" ? "chip-active" : ""}`}
+          onClick={() => { setMode("login"); setError(null); }}
+        >
+          Sign in
+        </button>
+        <button
+          type="button"
+          className={`chip ${mode === "signup" ? "chip-active" : ""}`}
+          onClick={() => { setMode("signup"); setError(null); }}
+        >
+          Create account
+        </button>
+      </div>
+      <form onSubmit={onSubmit} className="flex flex-col gap-2">
+        <label className="flex flex-col gap-1 text-xs text-[var(--muted)]">
+          Username
+          <input
+            className="input"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            autoComplete="username"
+            placeholder="e.g. jdoe42"
+            required
+          />
+        </label>
+        {mode === "signup" ? (
+          <>
+            <label className="flex flex-col gap-1 text-xs text-[var(--muted)]">
+              Display name
+              <input
+                className="input"
+                value={displayName}
+                onChange={(e) => setDisplayName(e.target.value)}
+                placeholder="e.g. Jane Doe"
+              />
+            </label>
+            <label className="flex flex-col gap-1 text-xs text-[var(--muted)]">
+              Student number (optional)
+              <input
+                className="input"
+                value={studentNumber}
+                onChange={(e) => setStudentNumber(e.target.value)}
+                placeholder="e.g. 218012345"
+              />
+            </label>
+          </>
+        ) : null}
+        <label className="flex flex-col gap-1 text-xs text-[var(--muted)]">
+          Password
+          <input
+            className="input"
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            autoComplete={mode === "signup" ? "new-password" : "current-password"}
+            required
+            minLength={6}
+          />
+        </label>
+        <button type="submit" className="btn mt-1" disabled={busy}>
+          {busy ? (mode === "signup" ? "Creating…" : "Signing in…") : mode === "signup" ? "Create account" : "Sign in"}
+        </button>
+        {error ? <p className="text-sm text-[var(--alert)]">{error}</p> : null}
+      </form>
+    </div>
   );
 }

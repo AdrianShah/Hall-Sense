@@ -2,114 +2,95 @@
 
 import { useMemo, useState } from "react";
 import { isOverheat, type Building, type Room } from "@/lib/types";
+import { useAuth } from "@/lib/auth-context";
 
 type Props = {
   buildings: Building[];
   rooms: Room[];
-  selectedBuildingId: string | null;
-  onSelectBuilding: (id: string | null) => void;
   onSelectRoom: (roomId: string) => void;
 };
 
-export function SearchPanel({
-  buildings,
-  rooms,
-  selectedBuildingId,
-  onSelectBuilding,
-  onSelectRoom,
-}: Props) {
+export function SearchPanel({ buildings, rooms, onSelectRoom }: Props) {
+  const { profile, toggleFavourite } = useAuth();
   const [q, setQ] = useState("");
 
   const results = useMemo(() => {
     const term = q.trim().toLowerCase();
+    if (term.length === 0) return [];
     const buildingMap = new Map(buildings.map((b) => [b.id, b]));
-
-    const roomHits = rooms
+    return rooms
       .map((room) => {
         const b = buildingMap.get(room.buildingId);
         const hay = `${room.name} ${room.number} ${b?.name ?? ""} ${b?.code ?? ""}`.toLowerCase();
         return { room, building: b, hay };
       })
-      .filter(({ hay, building }) => {
-        if (selectedBuildingId && building?.id !== selectedBuildingId) return false;
-        if (!term) return true;
-        return hay.includes(term);
-      })
-      .slice(0, 6);
+      .filter(({ hay }) => hay.includes(term))
+      .slice(0, 40);
+  }, [buildings, rooms, q]);
 
-    const buildingHits =
-      term.length === 0
-        ? buildings
-        : buildings.filter(
-            (b) =>
-              b.name.toLowerCase().includes(term) || b.code.toLowerCase().includes(term)
-          );
-
-    return { roomHits, buildingHits };
-  }, [buildings, rooms, q, selectedBuildingId]);
+  const favs = profile?.favouriteRoomIds ?? [];
 
   return (
     <section className="panel flex h-full flex-col">
-      <p className="eyebrow">Pre-class check</p>
+      <p className="eyebrow">Find a room</p>
       <h2 className="section-title mt-1">Search Keele halls</h2>
+      <p className="mt-1 text-sm text-[var(--muted)]">
+        {buildings.length} buildings · {rooms.length} rooms
+      </p>
       <input
         className="input mt-3 w-full"
-        placeholder="Building, code, or room…"
+        placeholder="Search e.g. CLH A, TEL 0006, Ross S103…"
         value={q}
         onChange={(e) => setQ(e.target.value)}
       />
-
-      <div className="mt-3 flex flex-wrap gap-2">
-        <button
-          type="button"
-          className={`chip ${selectedBuildingId == null ? "chip-active" : ""}`}
-          onClick={() => onSelectBuilding(null)}
-        >
-          All
-        </button>
-        {results.buildingHits.map((b) => (
-          <button
-            key={b.id}
-            type="button"
-            className={`chip ${selectedBuildingId === b.id ? "chip-active" : ""}`}
-            onClick={() => onSelectBuilding(b.id)}
-          >
-            {b.code}
-          </button>
-        ))}
-      </div>
-
-      <ul className="mt-4 space-y-2">
-        {results.roomHits.map(({ room, building }) => {
+      <ul className="mt-4 max-h-[28rem] space-y-2 overflow-y-auto">
+        {results.map(({ room, building }) => {
           const hot = isOverheat(room.tempC);
+          const code = building?.code === "VH" ? "VARI" : building?.code;
+          const isFav = favs.includes(room.id);
           return (
             <li key={room.id}>
               <button
                 type="button"
                 className="room-row"
-                onClick={() => {
-                  onSelectBuilding(room.buildingId);
-                  onSelectRoom(room.id);
-                }}
+                onClick={() => onSelectRoom(room.id)}
               >
-                <span>
+                <span className="flex-1">
                   <span className="font-medium text-[var(--ink)]">
-                    {building?.code} {room.number}
+                    {code} {room.number}
                   </span>
                   <span className="mt-0.5 block text-xs text-[var(--muted)]">
-                    {room.name}
+                    {building?.name}
                     {room.source === "live" ? " · live sensor" : ""}
                   </span>
                 </span>
                 <span className={`temp-badge ${hot ? "temp-badge-hot" : "temp-badge-ok"}`}>
                   {room.tempC.toFixed(1)}°C
                 </span>
+                <button
+                  type="button"
+                  className="ml-2 text-lg"
+                  title={isFav ? "Remove from favourites" : "Add to favourites"}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    toggleFavourite(room.id);
+                  }}
+                >
+                  {isFav ? "★" : "☆"}
+                </button>
               </button>
             </li>
           );
         })}
-        {results.roomHits.length === 0 ? (
-          <li className="py-8 text-center text-sm text-[var(--muted)]">No rooms match.</li>
+        {q.trim().length > 0 && results.length === 0 ? (
+          <li className="py-8 text-center text-sm text-[var(--muted)]">
+            No rooms match — try another building code or room number.
+          </li>
+        ) : null}
+        {q.trim().length === 0 ? (
+          <li className="py-8 text-center text-sm text-[var(--muted)]">
+            Type above to search all Keele rooms.
+          </li>
         ) : null}
       </ul>
     </section>

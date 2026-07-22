@@ -47,7 +47,7 @@ export function AlertsScreen({ onBack }: Props) {
   return (
     <View style={styles.root}>
       <Pressable onPress={onBack}>
-        <Text style={styles.back}>← Campus map</Text>
+        <Text style={styles.back}>← Back</Text>
       </Pressable>
       <Text style={styles.title}>Push alerts</Text>
       <Text style={styles.body}>

@@ -82,20 +82,24 @@ async function seedCampus() {
 
   const live = seed.rooms.find((r) => r.id === seed.liveRoomId);
   if (live) {
-    batch.set(doc(db, "readings_latest", seed.liveRoomId), {
-      roomId: seed.liveRoomId,
-      t: live.tempC,
-      h: live.humidity,
-      overheat: live.tempC > seed.thresholdC,
-      ts: now,
-    });
+    // Don't overwrite live sensor values — only ensure the doc exists with metadata
+    batch.set(
+      doc(db, "readings_latest", seed.liveRoomId),
+      {
+        roomId: seed.liveRoomId,
+      },
+      { merge: true }
+    );
   }
 
-  batch.set(doc(db, "devices", "demo"), {
-    expoPushToken: null,
-    label: "Demo phone",
-    updatedAt: now,
-  });
+  batch.set(
+    doc(db, "devices", "demo"),
+    {
+      label: "Demo phone",
+      updatedAt: now,
+    },
+    { merge: true }
+  );
 
   await batch.commit();
   console.log(`Seeded ${seed.buildings.length} buildings, ${seed.rooms.length} rooms`);

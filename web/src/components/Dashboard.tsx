@@ -1,14 +1,16 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { useState } from "react";
-import { AuthProvider } from "@/lib/auth-context";
+import { useMemo, useState } from "react";
+import { AuthProvider, useAuth } from "@/lib/auth-context";
+import { ThemeProvider, useTheme } from "@/lib/theme-context";
 import { useCampusData } from "@/hooks/useCampusData";
 import { LoginPanel } from "@/components/LoginPanel";
+import { Onboarding } from "@/components/Onboarding";
 import { LiveStatus } from "@/components/LiveStatus";
 import { TrendChart } from "@/components/TrendChart";
 import { SearchPanel } from "@/components/SearchPanel";
-import { LIVE_ROOM_ID } from "@/lib/firebase";
+import { LIVE_ROOM_ID, isOverheat } from "@/lib/types";
 
 const CampusMap = dynamic(() => import("@/components/CampusMap"), {
   ssr: false,
@@ -19,11 +21,121 @@ const CampusMap = dynamic(() => import("@/components/CampusMap"), {
   ),
 });
 
+function FavouriteRooms() {
+  const { profile, toggleFavourite } = useAuth();
+  const { rooms, buildings, latest } = useCampusData();
+  const favs = profile?.favouriteRoomIds ?? [];
+
+  const favouriteRooms = useMemo(() => {
+    return favs
+      .filter((id) => id !== LIVE_ROOM_ID)
+      .map((id) => {
+        const room = rooms.find((r) => r.id === id);
+        const building = room ? buildings.find((b) => b.id === room.buildingId) : undefined;
+        return { room, building };
+      })
+      .filter(({ room }) => room != null);
+  }, [favs, rooms, buildings]);
+
+  if (favouriteRooms.length === 0) {
+    return (
+      <section className="panel">
+        <p className="eyebrow">Favourites</p>
+        <p className="mt-2 text-sm text-[var(--muted)]">
+          Search for rooms you use often and tap ☆ to add them here.
+        </p>
+      </section>
+    );
+  }
+
+  return (
+    <section className="panel">
+      <p className="eyebrow">Your favourites</p>
+      <ul className="mt-3 space-y-2">
+        {favouriteRooms.map(({ room, building }) => {
+          if (!room) return null;
+          const hot = isOverheat(room.tempC);
+          const code = building?.code === "VH" ? "VARI" : building?.code;
+          return (
+            <li key={room.id}>
+              <div className="room-row">
+                <span className="flex-1">
+                  <span className="font-medium text-[var(--ink)]">
+                    {code} {room.number}
+                  </span>
+                  <span className="mt-0.5 block text-xs text-[var(--muted)]">
+                    {building?.name}
+                    {room.source === "live" ? " · live sensor" : ""}
+                  </span>
+                </span>
+                <span className={`temp-badge ${hot ? "temp-badge-hot" : "temp-badge-ok"}`}>
+                  {room.tempC.toFixed(1)}°C
+                </span>
+                <button
+                  type="button"
+                  className="ml-2 text-lg"
+                  title="Remove from favourites"
+                  onClick={() => toggleFavourite(room.id)}
+                >
+                  ★
+                </button>
+              </div>
+            </li>
+          );
+        })}
+      </ul>
+    </section>
+  );
+}
+
+function ThemeToggle() {
+  const { resolved, setTheme } = useTheme();
+  return (
+    <button
+      type="button"
+      className="btn-ghost"
+      title="Toggle theme"
+      onClick={() => setTheme(resolved === "dark" ? "light" : "dark")}
+    >
+      {resolved === "dark" ? "☀" : "☾"}
+    </button>
+  );
+}
+
 function DashboardInner() {
+  const { user, profile, loading } = useAuth();
   const { buildings, rooms, latest, history, ready } = useCampusData();
-  const [selectedBuildingId, setSelectedBuildingId] = useState<string | null>(null);
+  const [showMap, setShowMap] = useState(false);
   const [focusRoomId, setFocusRoomId] = useState<string | null>(LIVE_ROOM_ID);
   const liveRoom = rooms.find((r) => r.id === LIVE_ROOM_ID);
+
+  if (loading) {
+    return (
+      <div className="page-shell flex items-center justify-center">
+        <p className="text-sm text-[var(--muted)]">Loading…</p>
+      </div>
+    );
+  }
+
+  if (!user) {
+    return (
+      <div className="page-shell">
+        <div className="flex min-h-screen items-center justify-center px-6">
+          <div className="w-full max-w-sm">
+            <p className="brand text-center" style={{ fontSize: "2.5rem" }}>HallSense</p>
+            <p className="mt-2 mb-6 text-center text-[var(--muted)]">
+              Know the lecture hall before you walk across Keele.
+            </p>
+            <LoginPanel />
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (profile && !profile.onboardingComplete) {
+    return <Onboarding />;
+  }
 
   return (
     <div className="page-shell">
@@ -37,7 +149,10 @@ function DashboardInner() {
                 Know the lecture hall before you walk across Keele.
               </p>
             </div>
-            <LoginPanel />
+            <div className="flex items-center gap-3">
+              <ThemeToggle />
+              <LoginPanel />
+            </div>
           </div>
         </div>
       </header>
@@ -52,20 +167,31 @@ function DashboardInner() {
           <TrendChart history={history} />
         </div>
 
-        <div className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
-          <CampusMap
-            buildings={buildings}
-            rooms={rooms}
-            selectedBuildingId={selectedBuildingId}
-            focusRoomId={focusRoomId}
-          />
+        <FavouriteRooms />
+
+        <div className="grid gap-6 lg:grid-cols-2">
           <SearchPanel
             buildings={buildings}
             rooms={rooms}
-            selectedBuildingId={selectedBuildingId}
-            onSelectBuilding={setSelectedBuildingId}
             onSelectRoom={setFocusRoomId}
           />
+          <div className="flex flex-col gap-3">
+            <button
+              type="button"
+              className="btn-ghost w-full"
+              onClick={() => setShowMap(!showMap)}
+            >
+              {showMap ? "Hide campus map" : "Show campus map"}
+            </button>
+            {showMap ? (
+              <CampusMap
+                buildings={buildings}
+                rooms={rooms}
+                selectedBuildingId={null}
+                focusRoomId={focusRoomId}
+              />
+            ) : null}
+          </div>
         </div>
       </main>
 
@@ -78,8 +204,10 @@ function DashboardInner() {
 
 export function Dashboard() {
   return (
-    <AuthProvider>
-      <DashboardInner />
-    </AuthProvider>
+    <ThemeProvider>
+      <AuthProvider>
+        <DashboardInner />
+      </AuthProvider>
+    </ThemeProvider>
   );
 }

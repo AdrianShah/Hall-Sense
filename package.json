@@ -7,6 +7,7 @@
     "seed": "node scripts/seed-firestore.mjs",
     "seed:prod": "node scripts/seed-firestore-open.mjs",
     "seed:admin": "node scripts/seed-client.mjs",
+    "seed:campus": "node scripts/generate-campus-seed.mjs && node scripts/seed-client.mjs",
     "emulators": "firebase emulators:start --only auth,firestore",
     "bridge": "python bridge/main.py",
     "bridge:sim": "python bridge/main.py --sim",

@@ -1,9 +1,43 @@
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
-    // Demo-friendly rules for ENG 1102 prototype (tighten after Auth is enabled).
-    match /{document=**} {
+    // Campus data: public read, no client write
+    match /buildings/{buildingId} {
+      allow read: if true;
+      allow write: if false;
+    }
+    match /rooms/{roomId} {
+      allow read: if true;
+      allow write: if false;
+    }
+    match /readings_latest/{roomId} {
+      allow read: if true;
+      allow write: if false;
+    }
+    match /readings/{readingId} {
+      allow read: if true;
+      allow write: if false;
+    }
+    match /config/{docId} {
+      allow read: if true;
+      allow write: if false;
+    }
+    match /devices/{deviceId} {
       allow read, write: if true;
+    }
+
+    // User profiles: owner read/write only
+    match /users/{uid} {
+      allow read: if request.auth != null && request.auth.uid == uid;
+      allow create: if request.auth != null && request.auth.uid == uid;
+      allow update: if request.auth != null && request.auth.uid == uid;
+    }
+
+    // Username reservation: authenticated users can claim unclaimed usernames
+    match /usernames/{username} {
+      allow read: if true;
+      allow create: if request.auth != null
+        && request.resource.data.uid == request.auth.uid;
     }
   }
 }

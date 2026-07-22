@@ -5,6 +5,9 @@ import { Platform } from "react-native";
 import { doc, setDoc } from "firebase/firestore";
 import { db } from "./firebase";
 
+/** EAS project id for @adrianshah/hallsense — required by getExpoPushTokenAsync */
+const EAS_PROJECT_ID = "ce0352d8-73da-462a-9ae2-52292b3f7e68";
+
 Notifications.setNotificationHandler({
   handleNotification: async () => ({
     shouldShowAlert: true,
@@ -15,10 +18,19 @@ Notifications.setNotificationHandler({
   }),
 });
 
+function resolveProjectId(): string {
+  const fromConfig =
+    Constants.expoConfig?.extra?.eas?.projectId ??
+    Constants.easConfig?.projectId ??
+    undefined;
+  return typeof fromConfig === "string" && fromConfig.length > 0
+    ? fromConfig
+    : EAS_PROJECT_ID;
+}
+
 export async function registerForPushNotificationsAsync(): Promise<string | null> {
   if (!Device.isDevice) {
-    console.warn("Push notifications require a physical device");
-    return null;
+    throw new Error("Push alerts need a physical phone (not a simulator).");
   }
 
   if (Platform.OS === "android") {
@@ -37,17 +49,11 @@ export async function registerForPushNotificationsAsync(): Promise<string | null
     finalStatus = status;
   }
   if (finalStatus !== "granted") {
-    return null;
+    throw new Error("Notification permission was denied.");
   }
 
-  const projectId =
-    Constants.expoConfig?.extra?.eas?.projectId ??
-    Constants.easConfig?.projectId ??
-    undefined;
-
-  const tokenResponse = await Notifications.getExpoPushTokenAsync(
-    projectId ? { projectId } : undefined
-  );
+  const projectId = resolveProjectId();
+  const tokenResponse = await Notifications.getExpoPushTokenAsync({ projectId });
   return tokenResponse.data;
 }
 

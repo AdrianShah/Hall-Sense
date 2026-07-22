@@ -13,6 +13,29 @@ import {
 import { connectEmulatorsIfNeeded, db, LIVE_ROOM_ID } from "@/lib/firebase";
 import type { Building, Reading, Room } from "@/lib/types";
 
+function toReading(data: Record<string, unknown>): Reading | null {
+  const t = Number(data.t);
+  const h = Number(data.h);
+  const ts = Number(data.ts);
+  if (!Number.isFinite(t) || !Number.isFinite(ts)) {
+    return null;
+  }
+  return {
+    roomId: String(data.roomId ?? LIVE_ROOM_ID),
+    t,
+    h: Number.isFinite(h) ? h : 0,
+    overheat: Boolean(data.overheat),
+    ts,
+  };
+}
+
+function lastHourHistory(rows: Reading[]): Reading[] {
+  const cutoff = Date.now() - 60 * 60 * 1000;
+  return rows
+    .filter((r) => r.ts >= cutoff)
+    .sort((a, b) => a.ts - b.ts);
+}
+
 export function useCampusData() {
   const [buildings, setBuildings] = useState<Building[]>([]);
   const [rooms, setRooms] = useState<Room[]>([]);
@@ -32,36 +55,44 @@ export function useCampusData() {
     });
 
     const unsubLatest = onSnapshot(doc(db, "readings_latest", LIVE_ROOM_ID), (snap) => {
-      if (snap.exists()) setLatest(snap.data() as Reading);
-      else setLatest(null);
+      if (!snap.exists()) {
+        setLatest(null);
+        return;
+      }
+      setLatest(toReading(snap.data() as Record<string, unknown>));
     });
 
-    const oneHourAgo = Date.now() - 60 * 60 * 1000;
-    const histQ = query(
+    // Prefer indexed query; fall back to roomId-only (always works) + client sort/filter
+    const indexedQ = query(
       collection(db, "readings"),
       where("roomId", "==", LIVE_ROOM_ID),
-      where("ts", ">=", oneHourAgo),
       orderBy("ts", "asc"),
       limit(800)
     );
+
+    let unsubFallback: (() => void) | undefined;
+
+    const applyHistorySnap = (docs: { data: () => Record<string, unknown> }[]) => {
+      const rows = docs
+        .map((d) => toReading(d.data()))
+        .filter((r): r is Reading => r != null);
+      setHistory(lastHourHistory(rows));
+      setReady(true);
+    };
+
     const unsubHist = onSnapshot(
-      histQ,
+      indexedQ,
       (snap) => {
-        setHistory(snap.docs.map((d) => d.data() as Reading));
-        setReady(true);
+        applyHistorySnap(snap.docs);
       },
       () => {
-        // Fallback without composite index / time filter during first run
-        const fallback = query(
+        const fallbackQ = query(
           collection(db, "readings"),
           where("roomId", "==", LIVE_ROOM_ID),
-          orderBy("ts", "desc"),
-          limit(720)
+          limit(500)
         );
-        onSnapshot(fallback, (snap) => {
-          const rows = snap.docs.map((d) => d.data() as Reading).reverse();
-          setHistory(rows.filter((r) => r.ts >= oneHourAgo));
-          setReady(true);
+        unsubFallback = onSnapshot(fallbackQ, (snap) => {
+          applyHistorySnap(snap.docs);
         });
       }
     );
@@ -71,6 +102,7 @@ export function useCampusData() {
       unsubRooms();
       unsubLatest();
       unsubHist();
+      unsubFallback?.();
     };
   }, []);
 

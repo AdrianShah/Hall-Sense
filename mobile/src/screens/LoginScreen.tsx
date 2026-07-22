@@ -9,19 +9,17 @@ import {
   TextInput,
   View,
 } from "react-native";
-import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth, connectEmulatorsIfNeeded } from "../lib/firebase";
+import { useAuth } from "../lib/auth-context";
 
-const DEMO_EMAIL = "admin@hallsense.demo";
-const DEMO_PASSWORD = "HallSense2026!";
+type Mode = "login" | "signup";
 
-type Props = {
-  onLoggedIn: () => void;
-};
-
-export function LoginScreen({ onLoggedIn }: Props) {
-  const [email, setEmail] = useState(DEMO_EMAIL);
-  const [password, setPassword] = useState(DEMO_PASSWORD);
+export function LoginScreen() {
+  const { login, signup } = useAuth();
+  const [mode, setMode] = useState<Mode>("login");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [displayName, setDisplayName] = useState("");
+  const [studentNumber, setStudentNumber] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
 
@@ -29,34 +27,13 @@ export function LoginScreen({ onLoggedIn }: Props) {
     setBusy(true);
     setError(null);
     try {
-      connectEmulatorsIfNeeded();
-      await signInWithEmailAndPassword(auth, email.trim(), password);
-      onLoggedIn();
-    } catch (err) {
-      const code =
-        err && typeof err === "object" && "code" in err
-          ? String((err as { code: string }).code)
-          : "";
-      const message = err instanceof Error ? err.message : String(err);
-      const authNotReady =
-        code === "auth/configuration-not-found" ||
-        code === "auth/operation-not-allowed" ||
-        message.includes("configuration-not-found");
-
-      if (
-        authNotReady &&
-        email.trim().toLowerCase() === DEMO_EMAIL &&
-        password === DEMO_PASSWORD
-      ) {
-        onLoggedIn();
-        return;
+      if (mode === "signup") {
+        await signup(username, password, displayName || username, studentNumber || undefined);
+      } else {
+        await login(username, password);
       }
-
-      setError(
-        authNotReady
-          ? "Firebase Auth not enabled — use admin@hallsense.demo / HallSense2026! for demo login."
-          : message
-      );
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Something went wrong");
     } finally {
       setBusy(false);
     }
@@ -70,25 +47,71 @@ export function LoginScreen({ onLoggedIn }: Props) {
       <Text style={styles.brand}>HallSense</Text>
       <Text style={styles.tagline}>Know the lecture hall before you walk across Keele.</Text>
 
+      <View style={styles.tabs}>
+        <Pressable
+          style={[styles.tab, mode === "login" && styles.tabActive]}
+          onPress={() => { setMode("login"); setError(null); }}
+        >
+          <Text style={[styles.tabText, mode === "login" && styles.tabTextActive]}>Sign in</Text>
+        </Pressable>
+        <Pressable
+          style={[styles.tab, mode === "signup" && styles.tabActive]}
+          onPress={() => { setMode("signup"); setError(null); }}
+        >
+          <Text style={[styles.tabText, mode === "signup" && styles.tabTextActive]}>Create account</Text>
+        </Pressable>
+      </View>
+
       <View style={styles.card}>
-        <Text style={styles.label}>Admin email</Text>
+        <Text style={styles.label}>Username</Text>
         <TextInput
           style={styles.input}
           autoCapitalize="none"
-          keyboardType="email-address"
-          value={email}
-          onChangeText={setEmail}
+          autoCorrect={false}
+          placeholder="e.g. jdoe42"
+          placeholderTextColor="#8a968f"
+          value={username}
+          onChangeText={setUsername}
         />
+        {mode === "signup" ? (
+          <>
+            <Text style={styles.label}>Display name</Text>
+            <TextInput
+              style={styles.input}
+              placeholder="e.g. Jane Doe"
+              placeholderTextColor="#8a968f"
+              value={displayName}
+              onChangeText={setDisplayName}
+            />
+            <Text style={styles.label}>Student number (optional)</Text>
+            <TextInput
+              style={styles.input}
+              placeholder="e.g. 218012345"
+              placeholderTextColor="#8a968f"
+              keyboardType="number-pad"
+              value={studentNumber}
+              onChangeText={setStudentNumber}
+            />
+          </>
+        ) : null}
         <Text style={styles.label}>Password</Text>
         <TextInput
           style={styles.input}
           secureTextEntry
+          placeholder="Min 6 characters"
+          placeholderTextColor="#8a968f"
           value={password}
           onChangeText={setPassword}
         />
         {error ? <Text style={styles.error}>{error}</Text> : null}
         <Pressable style={styles.button} onPress={submit} disabled={busy}>
-          {busy ? <ActivityIndicator color="#f4fff8" /> : <Text style={styles.buttonText}>Sign in</Text>}
+          {busy ? (
+            <ActivityIndicator color="#f4fff8" />
+          ) : (
+            <Text style={styles.buttonText}>
+              {mode === "signup" ? "Create account" : "Sign in"}
+            </Text>
+          )}
         </Pressable>
       </View>
     </KeyboardAvoidingView>
@@ -110,11 +133,30 @@ const styles = StyleSheet.create({
   },
   tagline: {
     marginTop: 8,
-    marginBottom: 28,
+    marginBottom: 20,
     color: "#5c6b64",
     fontSize: 16,
     lineHeight: 22,
   },
+  tabs: {
+    flexDirection: "row",
+    gap: 8,
+    marginBottom: 14,
+  },
+  tab: {
+    borderWidth: 1,
+    borderColor: "#d5cdc0",
+    borderRadius: 999,
+    paddingHorizontal: 14,
+    paddingVertical: 7,
+    backgroundColor: "#fffdf8",
+  },
+  tabActive: {
+    backgroundColor: "rgba(31,107,74,0.12)",
+    borderColor: "#1f6b4a",
+  },
+  tabText: { color: "#5c6b64", fontWeight: "600", fontSize: 13 },
+  tabTextActive: { color: "#154c35" },
   card: {
     backgroundColor: "#f7f3eb",
     borderRadius: 16,

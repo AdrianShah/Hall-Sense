@@ -1,5 +1,3 @@
-"use client";
-
 import {
   createContext,
   useCallback,
@@ -23,8 +21,8 @@ import {
   updateDoc,
   onSnapshot,
 } from "firebase/firestore";
-import { auth, db, connectEmulatorsIfNeeded } from "@/lib/firebase";
-import type { UserProfile, ThemePreference } from "@/lib/types";
+import { auth, db, connectEmulatorsIfNeeded } from "./firebase";
+import type { UserProfile, ThemePreference } from "./types";
 
 function usernameToEmail(username: string): string {
   return `${username.toLowerCase().trim()}@users.hallsense.demo`;
@@ -53,29 +51,13 @@ function authErrorCode(err: unknown): string {
 function friendlyAuthError(err: unknown): Error {
   const code = authErrorCode(err);
   const message = err instanceof Error ? err.message : String(err);
-
-  if (
-    code === "auth/configuration-not-found" ||
-    code === "auth/operation-not-allowed" ||
-    message.includes("configuration-not-found")
-  ) {
-    return new Error(
-      "Email/Password sign-in is not enabled in Firebase Console → Authentication → Sign-in method."
-    );
-  }
-  if (code === "auth/unauthorized-domain") {
-    return new Error(
-      "Add this site to Firebase Console → Authentication → Settings → Authorized domains."
-    );
+  if (code === "auth/configuration-not-found" || code === "auth/operation-not-allowed") {
+    return new Error("Enable Email/Password in Firebase Console → Authentication → Sign-in method.");
   }
   if (code === "auth/email-already-in-use") {
-    return new Error("That username is already taken. Try another.");
+    return new Error("That username is already taken.");
   }
-  if (
-    code === "auth/invalid-credential" ||
-    code === "auth/user-not-found" ||
-    code === "auth/wrong-password"
-  ) {
+  if (code === "auth/invalid-credential" || code === "auth/user-not-found" || code === "auth/wrong-password") {
     return new Error("Wrong username or password.");
   }
   if (code === "auth/weak-password") {
@@ -91,9 +73,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     connectEmulatorsIfNeeded();
-    if (typeof window !== "undefined") {
-      sessionStorage.removeItem("hallsense_demo_admin");
-    }
     const unsub = onAuthStateChanged(auth, (next) => {
       setUser(next);
       if (!next) {
@@ -121,11 +100,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     async (username: string, password: string, displayName: string, studentNumber?: string) => {
       const cleanUsername = username.toLowerCase().trim();
       if (cleanUsername.length < 3) throw new Error("Username must be at least 3 characters.");
-      if (!/^[a-z0-9_]+$/.test(cleanUsername)) throw new Error("Username can only contain letters, numbers, and underscores.");
+      if (!/^[a-z0-9_]+$/.test(cleanUsername)) throw new Error("Username: letters, numbers, underscores only.");
 
       const usernameRef = doc(db, "usernames", cleanUsername);
       const existing = await getDoc(usernameRef);
-      if (existing.exists()) throw new Error("That username is already taken. Try another.");
+      if (existing.exists()) throw new Error("That username is already taken.");
 
       const email = usernameToEmail(cleanUsername);
       try {

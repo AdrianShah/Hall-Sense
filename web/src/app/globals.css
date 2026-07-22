@@ -1,7 +1,8 @@
 @import "tailwindcss";
 @import "leaflet/dist/leaflet.css";
 
-:root {
+:root,
+[data-theme="light"] {
   --bg: #e8efe8;
   --bg-deep: #d5e2d6;
   --ink: #1c2a24;
@@ -13,6 +14,22 @@
   --brand-dark: #154c35;
   --alert: #c45c26;
   --ok: #1f6b4a;
+  --input-bg: #fffdf8;
+}
+
+[data-theme="dark"] {
+  --bg: #141e18;
+  --bg-deep: #0e1612;
+  --ink: #d8e4dc;
+  --muted: #8a9890;
+  --panel: #1c2b22;
+  --panel-soft: #1a2820;
+  --line: #2e4038;
+  --brand: #3dbd7e;
+  --brand-dark: #5cd99a;
+  --alert: #e8854a;
+  --ok: #3dbd7e;
+  --input-bg: #14201a;
 }
 
 @theme inline {
@@ -114,7 +131,7 @@ body {
 
 .input {
   border: 1px solid var(--line);
-  background: #fffdf8;
+  background: var(--input-bg);
   color: var(--ink);
   border-radius: 10px;
   padding: 0.55rem 0.75rem;
@@ -159,7 +176,7 @@ body {
 
 .chip {
   border: 1px solid var(--line);
-  background: #fffdf8;
+  background: var(--input-bg);
   color: var(--muted);
   border-radius: 999px;
   padding: 0.3rem 0.7rem;
@@ -190,7 +207,7 @@ body {
 
 .room-row:hover {
   border-color: var(--line);
-  background: #fffdf8;
+  background: var(--input-bg);
 }
 
 .temp-badge {
@@ -205,6 +222,24 @@ body {
 
 .temp-badge-hot {
   color: var(--alert);
+}
+
+.onboarding-shell {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.onboarding-card {
+  width: 100%;
+  max-width: 380px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 12px 40px rgba(28, 42, 36, 0.08);
 }
 
 .leaflet-container {

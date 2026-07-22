@@ -39,9 +39,11 @@ Python bridge ──► Firebase Firestore
 
 1. Install Arduino libraries: **DHT sensor library** (Adafruit), **U8g2**.
 2. If your kit has **DHT20** (I2C) instead of DHT11, set `#define DHT_KIND 2` in `hallsense.ino` and install the Seeed DHT library.
-3. Upload `firmware/hallsense/hallsense.ino`.
-4. Open Serial Monitor at **9600** baud — you should see JSON every 5 seconds:
+3. Upload `firmware/hallsense/hallsense.ino` (Board: **Arduino Uno**, Port: your COM port).
+   - If compile fails or COM stays silent, upload `firmware/hallsense-serial-only/` first to prove USB serial works, then switch back to the full sketch.
+4. Close Serial Monitor, then run `npm run arduino:test` — you should see JSON every few seconds:
    `{"t":22.4,"h":48,"overheat":false,"ts":5000}`
+5. Open Serial Monitor at **9600** baud only for debugging; close it again before the Python bridge.
 
 Warm the sensor past 25°C to hear the buzzer and see `STATUS: OVERHEAT!` on the OLED.
 

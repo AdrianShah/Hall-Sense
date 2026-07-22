@@ -3,15 +3,20 @@ import { ActivityIndicator, StyleSheet, View } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { onAuthStateChanged, signOut } from "firebase/auth";
+import { AuthProvider, useAuth } from "./src/lib/auth-context";
 import { LoginScreen } from "./src/screens/LoginScreen";
+import { OnboardingScreen } from "./src/screens/OnboardingScreen";
+import { HomeScreen } from "./src/screens/HomeScreen";
+import { SearchScreen } from "./src/screens/SearchScreen";
 import { MapScreen } from "./src/screens/MapScreen";
 import { RoomDetailScreen } from "./src/screens/RoomDetailScreen";
 import { AlertsScreen } from "./src/screens/AlertsScreen";
-import { auth, connectEmulatorsIfNeeded } from "./src/lib/firebase";
 
 export type RootStackParamList = {
   Login: undefined;
+  Onboarding: undefined;
+  Home: undefined;
+  Search: undefined;
   Map: undefined;
   Room: { roomId: string };
   Alerts: undefined;
@@ -19,20 +24,10 @@ export type RootStackParamList = {
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
-export default function App() {
-  const [booting, setBooting] = useState(true);
-  const [loggedIn, setLoggedIn] = useState(false);
+function AppNavigator() {
+  const { user, profile, loading } = useAuth();
 
-  useEffect(() => {
-    connectEmulatorsIfNeeded();
-    const unsub = onAuthStateChanged(auth, (user) => {
-      setLoggedIn(Boolean(user));
-      setBooting(false);
-    });
-    return unsub;
-  }, []);
-
-  if (booting) {
+  if (loading) {
     return (
       <View style={styles.boot}>
         <ActivityIndicator size="large" color="#1f6b4a" />
@@ -41,16 +36,38 @@ export default function App() {
     );
   }
 
+  const needsOnboarding = user && profile && !profile.onboardingComplete;
+  const needsLogin = !user;
+
   return (
     <NavigationContainer>
       <StatusBar style="dark" />
       <Stack.Navigator screenOptions={{ headerShown: false }}>
-        {!loggedIn ? (
-          <Stack.Screen name="Login">
-            {() => <LoginScreen onLoggedIn={() => setLoggedIn(true)} />}
-          </Stack.Screen>
+        {needsLogin ? (
+          <Stack.Screen name="Login" component={LoginScreen} />
+        ) : needsOnboarding ? (
+          <Stack.Screen name="Onboarding" component={OnboardingScreen} />
         ) : (
           <>
+            <Stack.Screen name="Home">
+              {({ navigation }) => (
+                <HomeScreen
+                  onOpenRoom={(roomId) => navigation.navigate("Room", { roomId })}
+                  onOpenSearch={() => navigation.navigate("Search")}
+                  onOpenMap={() => navigation.navigate("Map")}
+                  onOpenAlerts={() => navigation.navigate("Alerts")}
+                  onOpenSettings={() => {}}
+                />
+              )}
+            </Stack.Screen>
+            <Stack.Screen name="Search">
+              {({ navigation }) => (
+                <SearchScreen
+                  onOpenRoom={(roomId) => navigation.navigate("Room", { roomId })}
+                  onBack={() => navigation.goBack()}
+                />
+              )}
+            </Stack.Screen>
             <Stack.Screen name="Map">
               {({ navigation }) => (
                 <MapScreen
@@ -77,16 +94,19 @@ export default function App() {
   );
 }
 
-// Allow demo sign-out from console if needed
-export async function demoSignOut() {
-  await signOut(auth);
+export default function App() {
+  return (
+    <AuthProvider>
+      <AppNavigator />
+    </AuthProvider>
+  );
 }
 
 const styles = StyleSheet.create({
   boot: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
     backgroundColor: "#e8efe8",
+    justifyContent: "center",
+    alignItems: "center",
   },
 });

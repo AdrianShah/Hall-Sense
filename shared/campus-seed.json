@@ -1,35 +1,3948 @@
 {
   "liveRoomId": "vari-a",
   "thresholdC": 25,
+  "featuredBuildingIds": [
+    "curtis",
+    "vari",
+    "lassonde"
+  ],
   "buildings": [
     {
       "id": "vari",
       "name": "Vari Hall",
       "code": "VH",
       "lat": 43.7735,
-      "lng": -79.5019
+      "lng": -79.5019,
+      "featured": true
     },
     {
       "id": "curtis",
       "name": "Curtis Lecture Halls",
       "code": "CLH",
       "lat": 43.7731,
-      "lng": -79.5052
+      "lng": -79.5052,
+      "featured": true
     },
     {
       "id": "lassonde",
       "name": "Lassonde Building",
       "code": "LAS",
       "lat": 43.7741,
-      "lng": -79.5058
+      "lng": -79.5058,
+      "featured": true
+    },
+    {
+      "id": "accolade-east",
+      "name": "Accolade East",
+      "code": "ACE",
+      "lat": 43.7728,
+      "lng": -79.5032,
+      "featured": false
+    },
+    {
+      "id": "accolade-west",
+      "name": "Accolade West",
+      "code": "ACW",
+      "lat": 43.773,
+      "lng": -79.5044,
+      "featured": false
+    },
+    {
+      "id": "bergeron",
+      "name": "Bergeron Centre",
+      "code": "BRG",
+      "lat": 43.7718,
+      "lng": -79.507,
+      "featured": false
+    },
+    {
+      "id": "chemistry",
+      "name": "Chemistry Building",
+      "code": "CB",
+      "lat": 43.7739,
+      "lng": -79.504,
+      "featured": false
+    },
+    {
+      "id": "ross",
+      "name": "Ross Building",
+      "code": "R",
+      "lat": 43.7715,
+      "lng": -79.5048,
+      "featured": false
+    },
+    {
+      "id": "petrie",
+      "name": "Petrie Science & Engineering",
+      "code": "PSE",
+      "lat": 43.7736,
+      "lng": -79.5065,
+      "featured": false
+    },
+    {
+      "id": "farquharson",
+      "name": "Farquharson Building",
+      "code": "FAR",
+      "lat": 43.7745,
+      "lng": -79.5045,
+      "featured": false
+    },
+    {
+      "id": "lsb",
+      "name": "Life Sciences Building",
+      "code": "LSB",
+      "lat": 43.7748,
+      "lng": -79.503,
+      "featured": false
+    },
+    {
+      "id": "bsb",
+      "name": "Behavioural Science Building",
+      "code": "BSB",
+      "lat": 43.7733,
+      "lng": -79.5025,
+      "featured": false
+    },
+    {
+      "id": "steacie",
+      "name": "Steacie Science & Engineering Library",
+      "code": "SSL",
+      "lat": 43.7725,
+      "lng": -79.506,
+      "featured": false
+    },
+    {
+      "id": "tel",
+      "name": "Technology Enhanced Learning",
+      "code": "TEL",
+      "lat": 43.7712,
+      "lng": -79.5025,
+      "featured": false
+    },
+    {
+      "id": "dahdaleh",
+      "name": "Victor Phillip Dahdaleh Building",
+      "code": "DB",
+      "lat": 43.772,
+      "lng": -79.5015,
+      "featured": false
+    },
+    {
+      "id": "founders",
+      "name": "Founders College",
+      "code": "FC",
+      "lat": 43.7705,
+      "lng": -79.5035,
+      "featured": false
+    },
+    {
+      "id": "vanier",
+      "name": "Vanier College",
+      "code": "VC",
+      "lat": 43.7698,
+      "lng": -79.5045,
+      "featured": false
+    },
+    {
+      "id": "winters",
+      "name": "Winters College",
+      "code": "WC",
+      "lat": 43.77,
+      "lng": -79.5055,
+      "featured": false
+    },
+    {
+      "id": "mclaughlin",
+      "name": "McLaughlin College",
+      "code": "MC",
+      "lat": 43.7695,
+      "lng": -79.5065,
+      "featured": false
+    },
+    {
+      "id": "stong",
+      "name": "Stong College",
+      "code": "SC",
+      "lat": 43.7708,
+      "lng": -79.5075,
+      "featured": false
+    },
+    {
+      "id": "bethune",
+      "name": "Bethune College",
+      "code": "BC",
+      "lat": 43.771,
+      "lng": -79.5085,
+      "featured": false
+    },
+    {
+      "id": "calumet",
+      "name": "Calumet College",
+      "code": "CC",
+      "lat": 43.7715,
+      "lng": -79.5095,
+      "featured": false
+    },
+    {
+      "id": "atkinson",
+      "name": "Atkinson Building",
+      "code": "ATK",
+      "lat": 43.7725,
+      "lng": -79.5005,
+      "featured": false
+    },
+    {
+      "id": "schulich",
+      "name": "Schulich School of Business",
+      "code": "SSB",
+      "lat": 43.7732,
+      "lng": -79.4988,
+      "featured": false
+    },
+    {
+      "id": "osgoode",
+      "name": "Osgoode Hall Law School",
+      "code": "OSG",
+      "lat": 43.7705,
+      "lng": -79.505,
+      "featured": false
+    },
+    {
+      "id": "health-nursing",
+      "name": "Health, Nursing and Environmental Studies",
+      "code": "HNES",
+      "lat": 43.7745,
+      "lng": -79.502,
+      "featured": false
+    },
+    {
+      "id": "kaneff",
+      "name": "Kaneff Tower",
+      "code": "KT",
+      "lat": 43.7718,
+      "lng": -79.5032,
+      "featured": false
+    },
+    {
+      "id": "william-small",
+      "name": "William Small Centre",
+      "code": "WSC",
+      "lat": 43.774,
+      "lng": -79.5075,
+      "featured": false
+    },
+    {
+      "id": "central-square",
+      "name": "Central Square",
+      "code": "CSQ",
+      "lat": 43.7728,
+      "lng": -79.5038,
+      "featured": false
+    },
+    {
+      "id": "scott",
+      "name": "Scott Library",
+      "code": "SCL",
+      "lat": 43.7722,
+      "lng": -79.5055,
+      "featured": false
+    },
+    {
+      "id": "york-lanes",
+      "name": "York Lanes",
+      "code": "YL",
+      "lat": 43.7738,
+      "lng": -79.5028,
+      "featured": false
+    },
+    {
+      "id": "podium",
+      "name": "The Podium",
+      "code": "POD",
+      "lat": 43.7726,
+      "lng": -79.5042,
+      "featured": false
+    },
+    {
+      "id": "lumbers",
+      "name": "Lumbers Building",
+      "code": "LUM",
+      "lat": 43.7734,
+      "lng": -79.5055,
+      "featured": false
+    },
+    {
+      "id": "physical-resources",
+      "name": "Physical Resources Building",
+      "code": "PRB",
+      "lat": 43.7748,
+      "lng": -79.5065,
+      "featured": false
+    },
+    {
+      "id": "fine-arts",
+      "name": "Joan & Martin Goldfarb Centre for Fine Arts",
+      "code": "CFA",
+      "lat": 43.771,
+      "lng": -79.501,
+      "featured": false
+    },
+    {
+      "id": "centre-film",
+      "name": "Centre for Film and Theatre",
+      "code": "CFT",
+      "lat": 43.7714,
+      "lng": -79.5002,
+      "featured": false
+    },
+    {
+      "id": "seneca-at-york",
+      "name": "Seneca@York",
+      "code": "SaY",
+      "lat": 43.7758,
+      "lng": -79.4995,
+      "featured": false
+    },
+    {
+      "id": "tait-mckenzie",
+      "name": "Tait McKenzie Centre",
+      "code": "TM",
+      "lat": 43.768,
+      "lng": -79.5065,
+      "featured": false
+    },
+    {
+      "id": "ignat-kaneff",
+      "name": "Ignat Kaneff Building",
+      "code": "IKB",
+      "lat": 43.7738,
+      "lng": -79.4998,
+      "featured": false
+    },
+    {
+      "id": "new-student-centre",
+      "name": "Second Student Centre",
+      "code": "SSC",
+      "lat": 43.7719,
+      "lng": -79.5038,
+      "featured": false
+    },
+    {
+      "id": "pond-road-residences",
+      "name": "Pond Road Residence",
+      "code": "PRR",
+      "lat": 43.7688,
+      "lng": -79.503,
+      "featured": false
+    },
+    {
+      "id": "observatory",
+      "name": "York Observatory",
+      "code": "OBS",
+      "lat": 43.776,
+      "lng": -79.508,
+      "featured": false
+    },
+    {
+      "id": "executive-learning-centre",
+      "name": "Executive Learning Centre",
+      "code": "ELC",
+      "lat": 43.7728,
+      "lng": -79.4982,
+      "featured": false
     }
   ],
   "rooms": [
-    { "id": "vari-a", "buildingId": "vari", "name": "Lecture Hall A", "number": "A", "tempC": 22.4, "humidity": 48, "source": "live" },
-    { "id": "vari-b", "buildingId": "vari", "name": "Lecture Hall B", "number": "B", "tempC": 26.2, "humidity": 55, "source": "mock" },
-    { "id": "curtis-a", "buildingId": "curtis", "name": "CLH A", "number": "A", "tempC": 23.5, "humidity": 52, "source": "mock" },
-    { "id": "curtis-b", "buildingId": "curtis", "name": "CLH B", "number": "B", "tempC": 25.8, "humidity": 58, "source": "mock" },
-    { "id": "las-c", "buildingId": "lassonde", "name": "LAS C", "number": "C", "tempC": 22.9, "humidity": 50, "source": "mock" },
-    { "id": "las-b", "buildingId": "lassonde", "name": "LAS B", "number": "B", "tempC": 24.1, "humidity": 52, "source": "mock" }
+    {
+      "id": "vari-a",
+      "buildingId": "vari",
+      "name": "VH A",
+      "number": "A",
+      "tempC": 22.4,
+      "humidity": 48,
+      "source": "live"
+    },
+    {
+      "id": "vari-b",
+      "buildingId": "vari",
+      "name": "VH B",
+      "number": "B",
+      "tempC": 23.7,
+      "humidity": 52,
+      "source": "mock"
+    },
+    {
+      "id": "vari-c",
+      "buildingId": "vari",
+      "name": "VH C",
+      "number": "C",
+      "tempC": 23.8,
+      "humidity": 53,
+      "source": "mock"
+    },
+    {
+      "id": "vari-1001",
+      "buildingId": "vari",
+      "name": "VH 1001",
+      "number": "1001",
+      "tempC": 27.1,
+      "humidity": 56,
+      "source": "mock"
+    },
+    {
+      "id": "vari-1002",
+      "buildingId": "vari",
+      "name": "VH 1002",
+      "number": "1002",
+      "tempC": 27.2,
+      "humidity": 57,
+      "source": "mock"
+    },
+    {
+      "id": "vari-2005",
+      "buildingId": "vari",
+      "name": "VH 2005",
+      "number": "2005",
+      "tempC": 27.6,
+      "humidity": 66,
+      "source": "mock"
+    },
+    {
+      "id": "vari-3006",
+      "buildingId": "vari",
+      "name": "VH 3006",
+      "number": "3006",
+      "tempC": 27.8,
+      "humidity": 73,
+      "source": "mock"
+    },
+    {
+      "id": "vari-1003",
+      "buildingId": "vari",
+      "name": "VH 1003",
+      "number": "1003",
+      "tempC": 27.3,
+      "humidity": 58,
+      "source": "mock"
+    },
+    {
+      "id": "vari-1004",
+      "buildingId": "vari",
+      "name": "VH 1004",
+      "number": "1004",
+      "tempC": 27.4,
+      "humidity": 59,
+      "source": "mock"
+    },
+    {
+      "id": "vari-2001",
+      "buildingId": "vari",
+      "name": "VH 2001",
+      "number": "2001",
+      "tempC": 27.2,
+      "humidity": 62,
+      "source": "mock"
+    },
+    {
+      "id": "vari-2002",
+      "buildingId": "vari",
+      "name": "VH 2002",
+      "number": "2002",
+      "tempC": 27.3,
+      "humidity": 63,
+      "source": "mock"
+    },
+    {
+      "id": "vari-2003",
+      "buildingId": "vari",
+      "name": "VH 2003",
+      "number": "2003",
+      "tempC": 27.4,
+      "humidity": 64,
+      "source": "mock"
+    },
+    {
+      "id": "vari-2004",
+      "buildingId": "vari",
+      "name": "VH 2004",
+      "number": "2004",
+      "tempC": 27.5,
+      "humidity": 65,
+      "source": "mock"
+    },
+    {
+      "id": "vari-3001",
+      "buildingId": "vari",
+      "name": "VH 3001",
+      "number": "3001",
+      "tempC": 27.3,
+      "humidity": 68,
+      "source": "mock"
+    },
+    {
+      "id": "vari-3002",
+      "buildingId": "vari",
+      "name": "VH 3002",
+      "number": "3002",
+      "tempC": 27.4,
+      "humidity": 69,
+      "source": "mock"
+    },
+    {
+      "id": "vari-3003",
+      "buildingId": "vari",
+      "name": "VH 3003",
+      "number": "3003",
+      "tempC": 27.5,
+      "humidity": 70,
+      "source": "mock"
+    },
+    {
+      "id": "vari-3004",
+      "buildingId": "vari",
+      "name": "VH 3004",
+      "number": "3004",
+      "tempC": 27.6,
+      "humidity": 71,
+      "source": "mock"
+    },
+    {
+      "id": "vari-3005",
+      "buildingId": "vari",
+      "name": "VH 3005",
+      "number": "3005",
+      "tempC": 27.7,
+      "humidity": 72,
+      "source": "mock"
+    },
+    {
+      "id": "curtis-a",
+      "buildingId": "curtis",
+      "name": "CLH A",
+      "number": "A",
+      "tempC": 27.4,
+      "humidity": 49,
+      "source": "mock"
+    },
+    {
+      "id": "curtis-b",
+      "buildingId": "curtis",
+      "name": "CLH B",
+      "number": "B",
+      "tempC": 27.5,
+      "humidity": 50,
+      "source": "mock"
+    },
+    {
+      "id": "curtis-c",
+      "buildingId": "curtis",
+      "name": "CLH C",
+      "number": "C",
+      "tempC": 27.6,
+      "humidity": 51,
+      "source": "mock"
+    },
+    {
+      "id": "curtis-d",
+      "buildingId": "curtis",
+      "name": "CLH D",
+      "number": "D",
+      "tempC": 27.7,
+      "humidity": 52,
+      "source": "mock"
+    },
+    {
+      "id": "curtis-e",
+      "buildingId": "curtis",
+      "name": "CLH E",
+      "number": "E",
+      "tempC": 27.8,
+      "humidity": 53,
+      "source": "mock"
+    },
+    {
+      "id": "curtis-f",
+      "buildingId": "curtis",
+      "name": "CLH F",
+      "number": "F",
+      "tempC": 27.9,
+      "humidity": 54,
+      "source": "mock"
+    },
+    {
+      "id": "curtis-g",
+      "buildingId": "curtis",
+      "name": "CLH G",
+      "number": "G",
+      "tempC": 28,
+      "humidity": 55,
+      "source": "mock"
+    },
+    {
+      "id": "curtis-h",
+      "buildingId": "curtis",
+      "name": "CLH H",
+      "number": "H",
+      "tempC": 28.1,
+      "humidity": 56,
+      "source": "mock"
+    },
+    {
+      "id": "curtis-i",
+      "buildingId": "curtis",
+      "name": "CLH I",
+      "number": "I",
+      "tempC": 28.2,
+      "humidity": 57,
+      "source": "mock"
+    },
+    {
+      "id": "curtis-j",
+      "buildingId": "curtis",
+      "name": "CLH J",
+      "number": "J",
+      "tempC": 28.3,
+      "humidity": 58,
+      "source": "mock"
+    },
+    {
+      "id": "curtis-k",
+      "buildingId": "curtis",
+      "name": "CLH K",
+      "number": "K",
+      "tempC": 28.4,
+      "humidity": 59,
+      "source": "mock"
+    },
+    {
+      "id": "curtis-l",
+      "buildingId": "curtis",
+      "name": "CLH L",
+      "number": "L",
+      "tempC": 28.5,
+      "humidity": 60,
+      "source": "mock"
+    },
+    {
+      "id": "curtis-m",
+      "buildingId": "curtis",
+      "name": "CLH M",
+      "number": "M",
+      "tempC": 28.6,
+      "humidity": 61,
+      "source": "mock"
+    },
+    {
+      "id": "curtis-n",
+      "buildingId": "curtis",
+      "name": "CLH N",
+      "number": "N",
+      "tempC": 28.7,
+      "humidity": 62,
+      "source": "mock"
+    },
+    {
+      "id": "lassonde-b",
+      "buildingId": "lassonde",
+      "name": "LAS B",
+      "number": "B",
+      "tempC": 27.4,
+      "humidity": 54,
+      "source": "mock"
+    },
+    {
+      "id": "lassonde-c",
+      "buildingId": "lassonde",
+      "name": "LAS C",
+      "number": "C",
+      "tempC": 27.5,
+      "humidity": 55,
+      "source": "mock"
+    },
+    {
+      "id": "lassonde-1002",
+      "buildingId": "lassonde",
+      "name": "LAS 1002",
+      "number": "1002",
+      "tempC": 25.9,
+      "humidity": 64,
+      "source": "mock"
+    },
+    {
+      "id": "lassonde-1006",
+      "buildingId": "lassonde",
+      "name": "LAS 1006",
+      "number": "1006",
+      "tempC": 26.3,
+      "humidity": 68,
+      "source": "mock"
+    },
+    {
+      "id": "lassonde-3033",
+      "buildingId": "lassonde",
+      "name": "LAS 3033",
+      "number": "3033",
+      "tempC": 26.5,
+      "humidity": 65,
+      "source": "mock"
+    },
+    {
+      "id": "lassonde-3038",
+      "buildingId": "lassonde",
+      "name": "LAS 3038",
+      "number": "3038",
+      "tempC": 27,
+      "humidity": 70,
+      "source": "mock"
+    },
+    {
+      "id": "lassonde-3050",
+      "buildingId": "lassonde",
+      "name": "LAS 3050",
+      "number": "3050",
+      "tempC": 23.4,
+      "humidity": 54,
+      "source": "mock"
+    },
+    {
+      "id": "lassonde-c112",
+      "buildingId": "lassonde",
+      "name": "LAS C112",
+      "number": "C112",
+      "tempC": 22.1,
+      "humidity": 61,
+      "source": "mock"
+    },
+    {
+      "id": "lassonde-c114",
+      "buildingId": "lassonde",
+      "name": "LAS C114",
+      "number": "C114",
+      "tempC": 22.3,
+      "humidity": 63,
+      "source": "mock"
+    },
+    {
+      "id": "lassonde-c116",
+      "buildingId": "lassonde",
+      "name": "LAS C116",
+      "number": "C116",
+      "tempC": 22.5,
+      "humidity": 65,
+      "source": "mock"
+    },
+    {
+      "id": "lassonde-1004",
+      "buildingId": "lassonde",
+      "name": "LAS 1004",
+      "number": "1004",
+      "tempC": 26.1,
+      "humidity": 66,
+      "source": "mock"
+    },
+    {
+      "id": "lassonde-1008",
+      "buildingId": "lassonde",
+      "name": "LAS 1008",
+      "number": "1008",
+      "tempC": 26.5,
+      "humidity": 70,
+      "source": "mock"
+    },
+    {
+      "id": "lassonde-2002",
+      "buildingId": "lassonde",
+      "name": "LAS 2002",
+      "number": "2002",
+      "tempC": 26,
+      "humidity": 70,
+      "source": "mock"
+    },
+    {
+      "id": "lassonde-2006",
+      "buildingId": "lassonde",
+      "name": "LAS 2006",
+      "number": "2006",
+      "tempC": 26.4,
+      "humidity": 74,
+      "source": "mock"
+    },
+    {
+      "id": "lassonde-2008",
+      "buildingId": "lassonde",
+      "name": "LAS 2008",
+      "number": "2008",
+      "tempC": 26.6,
+      "humidity": 41,
+      "source": "mock"
+    },
+    {
+      "id": "lassonde-3002",
+      "buildingId": "lassonde",
+      "name": "LAS 3002",
+      "number": "3002",
+      "tempC": 26.1,
+      "humidity": 41,
+      "source": "mock"
+    },
+    {
+      "id": "lassonde-3006",
+      "buildingId": "lassonde",
+      "name": "LAS 3006",
+      "number": "3006",
+      "tempC": 26.5,
+      "humidity": 45,
+      "source": "mock"
+    },
+    {
+      "id": "lassonde-3010",
+      "buildingId": "lassonde",
+      "name": "LAS 3010",
+      "number": "3010",
+      "tempC": 20,
+      "humidity": 70,
+      "source": "mock"
+    },
+    {
+      "id": "lassonde-c118",
+      "buildingId": "lassonde",
+      "name": "LAS C118",
+      "number": "C118",
+      "tempC": 22.7,
+      "humidity": 67,
+      "source": "mock"
+    },
+    {
+      "id": "lassonde-c120",
+      "buildingId": "lassonde",
+      "name": "LAS C120",
+      "number": "C120",
+      "tempC": 25,
+      "humidity": 55,
+      "source": "mock"
+    },
+    {
+      "id": "lassonde-1012",
+      "buildingId": "lassonde",
+      "name": "LAS 1012",
+      "number": "1012",
+      "tempC": 20,
+      "humidity": 60,
+      "source": "mock"
+    },
+    {
+      "id": "accolade-east-001",
+      "buildingId": "accolade-east",
+      "name": "ACE 001",
+      "number": "001",
+      "tempC": 27,
+      "humidity": 40,
+      "source": "mock"
+    },
+    {
+      "id": "accolade-east-002",
+      "buildingId": "accolade-east",
+      "name": "ACE 002",
+      "number": "002",
+      "tempC": 27.1,
+      "humidity": 41,
+      "source": "mock"
+    },
+    {
+      "id": "accolade-east-003",
+      "buildingId": "accolade-east",
+      "name": "ACE 003",
+      "number": "003",
+      "tempC": 27.2,
+      "humidity": 42,
+      "source": "mock"
+    },
+    {
+      "id": "accolade-east-009",
+      "buildingId": "accolade-east",
+      "name": "ACE 009",
+      "number": "009",
+      "tempC": 27.8,
+      "humidity": 48,
+      "source": "mock"
+    },
+    {
+      "id": "accolade-east-010",
+      "buildingId": "accolade-east",
+      "name": "ACE 010",
+      "number": "010",
+      "tempC": 21,
+      "humidity": 70,
+      "source": "mock"
+    },
+    {
+      "id": "accolade-east-011",
+      "buildingId": "accolade-east",
+      "name": "ACE 011",
+      "number": "011",
+      "tempC": 21.1,
+      "humidity": 71,
+      "source": "mock"
+    },
+    {
+      "id": "accolade-east-012",
+      "buildingId": "accolade-east",
+      "name": "ACE 012",
+      "number": "012",
+      "tempC": 21.2,
+      "humidity": 72,
+      "source": "mock"
+    },
+    {
+      "id": "accolade-east-013",
+      "buildingId": "accolade-east",
+      "name": "ACE 013",
+      "number": "013",
+      "tempC": 21.3,
+      "humidity": 73,
+      "source": "mock"
+    },
+    {
+      "id": "accolade-east-102",
+      "buildingId": "accolade-east",
+      "name": "ACE 102",
+      "number": "102",
+      "tempC": 24.2,
+      "humidity": 57,
+      "source": "mock"
+    },
+    {
+      "id": "accolade-east-203",
+      "buildingId": "accolade-east",
+      "name": "ACE 203",
+      "number": "203",
+      "tempC": 21.4,
+      "humidity": 74,
+      "source": "mock"
+    },
+    {
+      "id": "accolade-east-004",
+      "buildingId": "accolade-east",
+      "name": "ACE 004",
+      "number": "004",
+      "tempC": 27.3,
+      "humidity": 43,
+      "source": "mock"
+    },
+    {
+      "id": "accolade-east-005",
+      "buildingId": "accolade-east",
+      "name": "ACE 005",
+      "number": "005",
+      "tempC": 27.4,
+      "humidity": 44,
+      "source": "mock"
+    },
+    {
+      "id": "accolade-east-006",
+      "buildingId": "accolade-east",
+      "name": "ACE 006",
+      "number": "006",
+      "tempC": 27.5,
+      "humidity": 45,
+      "source": "mock"
+    },
+    {
+      "id": "accolade-east-007",
+      "buildingId": "accolade-east",
+      "name": "ACE 007",
+      "number": "007",
+      "tempC": 27.6,
+      "humidity": 46,
+      "source": "mock"
+    },
+    {
+      "id": "accolade-east-008",
+      "buildingId": "accolade-east",
+      "name": "ACE 008",
+      "number": "008",
+      "tempC": 27.7,
+      "humidity": 47,
+      "source": "mock"
+    },
+    {
+      "id": "accolade-east-101",
+      "buildingId": "accolade-east",
+      "name": "ACE 101",
+      "number": "101",
+      "tempC": 24.1,
+      "humidity": 56,
+      "source": "mock"
+    },
+    {
+      "id": "accolade-east-103",
+      "buildingId": "accolade-east",
+      "name": "ACE 103",
+      "number": "103",
+      "tempC": 24.3,
+      "humidity": 58,
+      "source": "mock"
+    },
+    {
+      "id": "accolade-east-104",
+      "buildingId": "accolade-east",
+      "name": "ACE 104",
+      "number": "104",
+      "tempC": 24.4,
+      "humidity": 59,
+      "source": "mock"
+    },
+    {
+      "id": "accolade-east-201",
+      "buildingId": "accolade-east",
+      "name": "ACE 201",
+      "number": "201",
+      "tempC": 21.2,
+      "humidity": 72,
+      "source": "mock"
+    },
+    {
+      "id": "accolade-east-202",
+      "buildingId": "accolade-east",
+      "name": "ACE 202",
+      "number": "202",
+      "tempC": 21.3,
+      "humidity": 73,
+      "source": "mock"
+    },
+    {
+      "id": "accolade-west-001",
+      "buildingId": "accolade-west",
+      "name": "ACW 001",
+      "number": "001",
+      "tempC": 20.6,
+      "humidity": 61,
+      "source": "mock"
+    },
+    {
+      "id": "accolade-west-002",
+      "buildingId": "accolade-west",
+      "name": "ACW 002",
+      "number": "002",
+      "tempC": 20.7,
+      "humidity": 62,
+      "source": "mock"
+    },
+    {
+      "id": "accolade-west-003",
+      "buildingId": "accolade-west",
+      "name": "ACW 003",
+      "number": "003",
+      "tempC": 20.8,
+      "humidity": 63,
+      "source": "mock"
+    },
+    {
+      "id": "accolade-west-004",
+      "buildingId": "accolade-west",
+      "name": "ACW 004",
+      "number": "004",
+      "tempC": 20.9,
+      "humidity": 64,
+      "source": "mock"
+    },
+    {
+      "id": "accolade-west-005",
+      "buildingId": "accolade-west",
+      "name": "ACW 005",
+      "number": "005",
+      "tempC": 21,
+      "humidity": 65,
+      "source": "mock"
+    },
+    {
+      "id": "accolade-west-006",
+      "buildingId": "accolade-west",
+      "name": "ACW 006",
+      "number": "006",
+      "tempC": 21.1,
+      "humidity": 66,
+      "source": "mock"
+    },
+    {
+      "id": "accolade-west-106",
+      "buildingId": "accolade-west",
+      "name": "ACW 106",
+      "number": "106",
+      "tempC": 27.2,
+      "humidity": 47,
+      "source": "mock"
+    },
+    {
+      "id": "accolade-west-206",
+      "buildingId": "accolade-west",
+      "name": "ACW 206",
+      "number": "206",
+      "tempC": 24.3,
+      "humidity": 63,
+      "source": "mock"
+    },
+    {
+      "id": "accolade-west-306",
+      "buildingId": "accolade-west",
+      "name": "ACW 306",
+      "number": "306",
+      "tempC": 21.4,
+      "humidity": 44,
+      "source": "mock"
+    },
+    {
+      "id": "accolade-west-007",
+      "buildingId": "accolade-west",
+      "name": "ACW 007",
+      "number": "007",
+      "tempC": 21.2,
+      "humidity": 67,
+      "source": "mock"
+    },
+    {
+      "id": "accolade-west-008",
+      "buildingId": "accolade-west",
+      "name": "ACW 008",
+      "number": "008",
+      "tempC": 21.3,
+      "humidity": 68,
+      "source": "mock"
+    },
+    {
+      "id": "accolade-west-009",
+      "buildingId": "accolade-west",
+      "name": "ACW 009",
+      "number": "009",
+      "tempC": 21.4,
+      "humidity": 69,
+      "source": "mock"
+    },
+    {
+      "id": "accolade-west-010",
+      "buildingId": "accolade-west",
+      "name": "ACW 010",
+      "number": "010",
+      "tempC": 23.6,
+      "humidity": 56,
+      "source": "mock"
+    },
+    {
+      "id": "accolade-west-105",
+      "buildingId": "accolade-west",
+      "name": "ACW 105",
+      "number": "105",
+      "tempC": 27.1,
+      "humidity": 46,
+      "source": "mock"
+    },
+    {
+      "id": "accolade-west-107",
+      "buildingId": "accolade-west",
+      "name": "ACW 107",
+      "number": "107",
+      "tempC": 27.3,
+      "humidity": 48,
+      "source": "mock"
+    },
+    {
+      "id": "accolade-west-205",
+      "buildingId": "accolade-west",
+      "name": "ACW 205",
+      "number": "205",
+      "tempC": 24.2,
+      "humidity": 62,
+      "source": "mock"
+    },
+    {
+      "id": "accolade-west-305",
+      "buildingId": "accolade-west",
+      "name": "ACW 305",
+      "number": "305",
+      "tempC": 21.3,
+      "humidity": 43,
+      "source": "mock"
+    },
+    {
+      "id": "bergeron-211",
+      "buildingId": "bergeron",
+      "name": "BRG 211",
+      "number": "211",
+      "tempC": 26.5,
+      "humidity": 65,
+      "source": "mock"
+    },
+    {
+      "id": "bergeron-212",
+      "buildingId": "bergeron",
+      "name": "BRG 212",
+      "number": "212",
+      "tempC": 26.6,
+      "humidity": 66,
+      "source": "mock"
+    },
+    {
+      "id": "bergeron-213",
+      "buildingId": "bergeron",
+      "name": "BRG 213",
+      "number": "213",
+      "tempC": 26.7,
+      "humidity": 67,
+      "source": "mock"
+    },
+    {
+      "id": "bergeron-311",
+      "buildingId": "bergeron",
+      "name": "BRG 311",
+      "number": "311",
+      "tempC": 23.6,
+      "humidity": 46,
+      "source": "mock"
+    },
+    {
+      "id": "bergeron-312",
+      "buildingId": "bergeron",
+      "name": "BRG 312",
+      "number": "312",
+      "tempC": 23.7,
+      "humidity": 47,
+      "source": "mock"
+    },
+    {
+      "id": "bergeron-313",
+      "buildingId": "bergeron",
+      "name": "BRG 313",
+      "number": "313",
+      "tempC": 23.8,
+      "humidity": 48,
+      "source": "mock"
+    },
+    {
+      "id": "bergeron-413",
+      "buildingId": "bergeron",
+      "name": "BRG 413",
+      "number": "413",
+      "tempC": 20.9,
+      "humidity": 64,
+      "source": "mock"
+    },
+    {
+      "id": "bergeron-414",
+      "buildingId": "bergeron",
+      "name": "BRG 414",
+      "number": "414",
+      "tempC": 21,
+      "humidity": 65,
+      "source": "mock"
+    },
+    {
+      "id": "bergeron-115",
+      "buildingId": "bergeron",
+      "name": "BRG 115",
+      "number": "115",
+      "tempC": 20.8,
+      "humidity": 53,
+      "source": "mock"
+    },
+    {
+      "id": "bergeron-116",
+      "buildingId": "bergeron",
+      "name": "BRG 116",
+      "number": "116",
+      "tempC": 20.9,
+      "humidity": 54,
+      "source": "mock"
+    },
+    {
+      "id": "bergeron-217",
+      "buildingId": "bergeron",
+      "name": "BRG 217",
+      "number": "217",
+      "tempC": 27.1,
+      "humidity": 71,
+      "source": "mock"
+    },
+    {
+      "id": "bergeron-314",
+      "buildingId": "bergeron",
+      "name": "BRG 314",
+      "number": "314",
+      "tempC": 23.9,
+      "humidity": 49,
+      "source": "mock"
+    },
+    {
+      "id": "bergeron-315",
+      "buildingId": "bergeron",
+      "name": "BRG 315",
+      "number": "315",
+      "tempC": 24,
+      "humidity": 50,
+      "source": "mock"
+    },
+    {
+      "id": "bergeron-415",
+      "buildingId": "bergeron",
+      "name": "BRG 415",
+      "number": "415",
+      "tempC": 21.1,
+      "humidity": 66,
+      "source": "mock"
+    },
+    {
+      "id": "bergeron-416",
+      "buildingId": "bergeron",
+      "name": "BRG 416",
+      "number": "416",
+      "tempC": 21.2,
+      "humidity": 67,
+      "source": "mock"
+    },
+    {
+      "id": "bergeron-517",
+      "buildingId": "bergeron",
+      "name": "BRG 517",
+      "number": "517",
+      "tempC": 27.4,
+      "humidity": 49,
+      "source": "mock"
+    },
+    {
+      "id": "chemistry-115",
+      "buildingId": "chemistry",
+      "name": "CB 115",
+      "number": "115",
+      "tempC": 27,
+      "humidity": 60,
+      "source": "mock"
+    },
+    {
+      "id": "chemistry-121",
+      "buildingId": "chemistry",
+      "name": "CB 121",
+      "number": "121",
+      "tempC": 20.7,
+      "humidity": 52,
+      "source": "mock"
+    },
+    {
+      "id": "chemistry-122",
+      "buildingId": "chemistry",
+      "name": "CB 122",
+      "number": "122",
+      "tempC": 20.8,
+      "humidity": 53,
+      "source": "mock"
+    },
+    {
+      "id": "chemistry-215",
+      "buildingId": "chemistry",
+      "name": "CB 215",
+      "number": "215",
+      "tempC": 24.1,
+      "humidity": 41,
+      "source": "mock"
+    },
+    {
+      "id": "chemistry-221",
+      "buildingId": "chemistry",
+      "name": "CB 221",
+      "number": "221",
+      "tempC": 26.8,
+      "humidity": 68,
+      "source": "mock"
+    },
+    {
+      "id": "chemistry-306",
+      "buildingId": "chemistry",
+      "name": "CB 306",
+      "number": "306",
+      "tempC": 27.2,
+      "humidity": 62,
+      "source": "mock"
+    },
+    {
+      "id": "chemistry-315",
+      "buildingId": "chemistry",
+      "name": "CB 315",
+      "number": "315",
+      "tempC": 21.2,
+      "humidity": 57,
+      "source": "mock"
+    },
+    {
+      "id": "chemistry-116",
+      "buildingId": "chemistry",
+      "name": "CB 116",
+      "number": "116",
+      "tempC": 27.1,
+      "humidity": 61,
+      "source": "mock"
+    },
+    {
+      "id": "chemistry-117",
+      "buildingId": "chemistry",
+      "name": "CB 117",
+      "number": "117",
+      "tempC": 27.2,
+      "humidity": 62,
+      "source": "mock"
+    },
+    {
+      "id": "chemistry-216",
+      "buildingId": "chemistry",
+      "name": "CB 216",
+      "number": "216",
+      "tempC": 24.2,
+      "humidity": 42,
+      "source": "mock"
+    },
+    {
+      "id": "chemistry-217",
+      "buildingId": "chemistry",
+      "name": "CB 217",
+      "number": "217",
+      "tempC": 24.3,
+      "humidity": 43,
+      "source": "mock"
+    },
+    {
+      "id": "chemistry-301",
+      "buildingId": "chemistry",
+      "name": "CB 301",
+      "number": "301",
+      "tempC": 26.7,
+      "humidity": 57,
+      "source": "mock"
+    },
+    {
+      "id": "chemistry-302",
+      "buildingId": "chemistry",
+      "name": "CB 302",
+      "number": "302",
+      "tempC": 26.8,
+      "humidity": 58,
+      "source": "mock"
+    },
+    {
+      "id": "chemistry-307",
+      "buildingId": "chemistry",
+      "name": "CB 307",
+      "number": "307",
+      "tempC": 27.3,
+      "humidity": 63,
+      "source": "mock"
+    },
+    {
+      "id": "ross-n102",
+      "buildingId": "ross",
+      "name": "R N102",
+      "number": "N102",
+      "tempC": 24.9,
+      "humidity": 64,
+      "source": "mock"
+    },
+    {
+      "id": "ross-n103",
+      "buildingId": "ross",
+      "name": "R N103",
+      "number": "N103",
+      "tempC": 25,
+      "humidity": 65,
+      "source": "mock"
+    },
+    {
+      "id": "ross-s101",
+      "buildingId": "ross",
+      "name": "R S101",
+      "number": "S101",
+      "tempC": 25.3,
+      "humidity": 58,
+      "source": "mock"
+    },
+    {
+      "id": "ross-s102",
+      "buildingId": "ross",
+      "name": "R S102",
+      "number": "S102",
+      "tempC": 25.4,
+      "humidity": 59,
+      "source": "mock"
+    },
+    {
+      "id": "ross-s103",
+      "buildingId": "ross",
+      "name": "R S103",
+      "number": "S103",
+      "tempC": 25.5,
+      "humidity": 60,
+      "source": "mock"
+    },
+    {
+      "id": "ross-s104",
+      "buildingId": "ross",
+      "name": "R S104",
+      "number": "S104",
+      "tempC": 25.6,
+      "humidity": 61,
+      "source": "mock"
+    },
+    {
+      "id": "ross-s105",
+      "buildingId": "ross",
+      "name": "R S105",
+      "number": "S105",
+      "tempC": 25.7,
+      "humidity": 62,
+      "source": "mock"
+    },
+    {
+      "id": "ross-n201",
+      "buildingId": "ross",
+      "name": "R N201",
+      "number": "N201",
+      "tempC": 21.9,
+      "humidity": 44,
+      "source": "mock"
+    },
+    {
+      "id": "ross-s201",
+      "buildingId": "ross",
+      "name": "R S201",
+      "number": "S201",
+      "tempC": 22.4,
+      "humidity": 74,
+      "source": "mock"
+    },
+    {
+      "id": "ross-s202",
+      "buildingId": "ross",
+      "name": "R S202",
+      "number": "S202",
+      "tempC": 22.5,
+      "humidity": 40,
+      "source": "mock"
+    },
+    {
+      "id": "ross-n202",
+      "buildingId": "ross",
+      "name": "R N202",
+      "number": "N202",
+      "tempC": 22,
+      "humidity": 45,
+      "source": "mock"
+    },
+    {
+      "id": "ross-n203",
+      "buildingId": "ross",
+      "name": "R N203",
+      "number": "N203",
+      "tempC": 22.1,
+      "humidity": 46,
+      "source": "mock"
+    },
+    {
+      "id": "ross-s203",
+      "buildingId": "ross",
+      "name": "R S203",
+      "number": "S203",
+      "tempC": 22.6,
+      "humidity": 41,
+      "source": "mock"
+    },
+    {
+      "id": "ross-s204",
+      "buildingId": "ross",
+      "name": "R S204",
+      "number": "S204",
+      "tempC": 22.7,
+      "humidity": 42,
+      "source": "mock"
+    },
+    {
+      "id": "ross-s205",
+      "buildingId": "ross",
+      "name": "R S205",
+      "number": "S205",
+      "tempC": 22.8,
+      "humidity": 43,
+      "source": "mock"
+    },
+    {
+      "id": "ross-n301",
+      "buildingId": "ross",
+      "name": "R N301",
+      "number": "N301",
+      "tempC": 28,
+      "humidity": 60,
+      "source": "mock"
+    },
+    {
+      "id": "ross-n302",
+      "buildingId": "ross",
+      "name": "R N302",
+      "number": "N302",
+      "tempC": 28.1,
+      "humidity": 61,
+      "source": "mock"
+    },
+    {
+      "id": "ross-s301",
+      "buildingId": "ross",
+      "name": "R S301",
+      "number": "S301",
+      "tempC": 28.5,
+      "humidity": 55,
+      "source": "mock"
+    },
+    {
+      "id": "ross-s302",
+      "buildingId": "ross",
+      "name": "R S302",
+      "number": "S302",
+      "tempC": 28.6,
+      "humidity": 56,
+      "source": "mock"
+    },
+    {
+      "id": "petrie-101",
+      "buildingId": "petrie",
+      "name": "PSE 101",
+      "number": "101",
+      "tempC": 22,
+      "humidity": 45,
+      "source": "mock"
+    },
+    {
+      "id": "petrie-103",
+      "buildingId": "petrie",
+      "name": "PSE 103",
+      "number": "103",
+      "tempC": 22.2,
+      "humidity": 47,
+      "source": "mock"
+    },
+    {
+      "id": "petrie-104",
+      "buildingId": "petrie",
+      "name": "PSE 104",
+      "number": "104",
+      "tempC": 22.3,
+      "humidity": 48,
+      "source": "mock"
+    },
+    {
+      "id": "petrie-201",
+      "buildingId": "petrie",
+      "name": "PSE 201",
+      "number": "201",
+      "tempC": 28.1,
+      "humidity": 61,
+      "source": "mock"
+    },
+    {
+      "id": "petrie-203",
+      "buildingId": "petrie",
+      "name": "PSE 203",
+      "number": "203",
+      "tempC": 28.3,
+      "humidity": 63,
+      "source": "mock"
+    },
+    {
+      "id": "petrie-317",
+      "buildingId": "petrie",
+      "name": "PSE 317",
+      "number": "317",
+      "tempC": 28.9,
+      "humidity": 44,
+      "source": "mock"
+    },
+    {
+      "id": "petrie-321",
+      "buildingId": "petrie",
+      "name": "PSE 321",
+      "number": "321",
+      "tempC": 22.4,
+      "humidity": 69,
+      "source": "mock"
+    },
+    {
+      "id": "petrie-102",
+      "buildingId": "petrie",
+      "name": "PSE 102",
+      "number": "102",
+      "tempC": 22.1,
+      "humidity": 46,
+      "source": "mock"
+    },
+    {
+      "id": "petrie-105",
+      "buildingId": "petrie",
+      "name": "PSE 105",
+      "number": "105",
+      "tempC": 22.4,
+      "humidity": 49,
+      "source": "mock"
+    },
+    {
+      "id": "petrie-106",
+      "buildingId": "petrie",
+      "name": "PSE 106",
+      "number": "106",
+      "tempC": 22.5,
+      "humidity": 50,
+      "source": "mock"
+    },
+    {
+      "id": "petrie-202",
+      "buildingId": "petrie",
+      "name": "PSE 202",
+      "number": "202",
+      "tempC": 28.2,
+      "humidity": 62,
+      "source": "mock"
+    },
+    {
+      "id": "petrie-204",
+      "buildingId": "petrie",
+      "name": "PSE 204",
+      "number": "204",
+      "tempC": 28.4,
+      "humidity": 64,
+      "source": "mock"
+    },
+    {
+      "id": "petrie-301",
+      "buildingId": "petrie",
+      "name": "PSE 301",
+      "number": "301",
+      "tempC": 25.2,
+      "humidity": 42,
+      "source": "mock"
+    },
+    {
+      "id": "petrie-302",
+      "buildingId": "petrie",
+      "name": "PSE 302",
+      "number": "302",
+      "tempC": 25.3,
+      "humidity": 43,
+      "source": "mock"
+    },
+    {
+      "id": "petrie-303",
+      "buildingId": "petrie",
+      "name": "PSE 303",
+      "number": "303",
+      "tempC": 25.4,
+      "humidity": 44,
+      "source": "mock"
+    },
+    {
+      "id": "petrie-318",
+      "buildingId": "petrie",
+      "name": "PSE 318",
+      "number": "318",
+      "tempC": 20,
+      "humidity": 45,
+      "source": "mock"
+    },
+    {
+      "id": "petrie-319",
+      "buildingId": "petrie",
+      "name": "PSE 319",
+      "number": "319",
+      "tempC": 20.1,
+      "humidity": 46,
+      "source": "mock"
+    },
+    {
+      "id": "farquharson-101",
+      "buildingId": "farquharson",
+      "name": "FAR 101",
+      "number": "101",
+      "tempC": 20.9,
+      "humidity": 64,
+      "source": "mock"
+    },
+    {
+      "id": "farquharson-102",
+      "buildingId": "farquharson",
+      "name": "FAR 102",
+      "number": "102",
+      "tempC": 21,
+      "humidity": 65,
+      "source": "mock"
+    },
+    {
+      "id": "farquharson-104",
+      "buildingId": "farquharson",
+      "name": "FAR 104",
+      "number": "104",
+      "tempC": 21.2,
+      "humidity": 67,
+      "source": "mock"
+    },
+    {
+      "id": "farquharson-203",
+      "buildingId": "farquharson",
+      "name": "FAR 203",
+      "number": "203",
+      "tempC": 27.2,
+      "humidity": 47,
+      "source": "mock"
+    },
+    {
+      "id": "farquharson-204",
+      "buildingId": "farquharson",
+      "name": "FAR 204",
+      "number": "204",
+      "tempC": 27.3,
+      "humidity": 48,
+      "source": "mock"
+    },
+    {
+      "id": "farquharson-205",
+      "buildingId": "farquharson",
+      "name": "FAR 205",
+      "number": "205",
+      "tempC": 27.4,
+      "humidity": 49,
+      "source": "mock"
+    },
+    {
+      "id": "lsb-101",
+      "buildingId": "lsb",
+      "name": "LSB 101",
+      "number": "101",
+      "tempC": 22.4,
+      "humidity": 44,
+      "source": "mock"
+    },
+    {
+      "id": "lsb-103",
+      "buildingId": "lsb",
+      "name": "LSB 103",
+      "number": "103",
+      "tempC": 22.6,
+      "humidity": 46,
+      "source": "mock"
+    },
+    {
+      "id": "lsb-105",
+      "buildingId": "lsb",
+      "name": "LSB 105",
+      "number": "105",
+      "tempC": 22.8,
+      "humidity": 48,
+      "source": "mock"
+    },
+    {
+      "id": "lsb-106",
+      "buildingId": "lsb",
+      "name": "LSB 106",
+      "number": "106",
+      "tempC": 22.9,
+      "humidity": 49,
+      "source": "mock"
+    },
+    {
+      "id": "lsb-107",
+      "buildingId": "lsb",
+      "name": "LSB 107",
+      "number": "107",
+      "tempC": 23,
+      "humidity": 50,
+      "source": "mock"
+    },
+    {
+      "id": "lsb-205",
+      "buildingId": "lsb",
+      "name": "LSB 205",
+      "number": "205",
+      "tempC": 28.9,
+      "humidity": 64,
+      "source": "mock"
+    },
+    {
+      "id": "lsb-206",
+      "buildingId": "lsb",
+      "name": "LSB 206",
+      "number": "206",
+      "tempC": 20,
+      "humidity": 65,
+      "source": "mock"
+    },
+    {
+      "id": "lsb-102",
+      "buildingId": "lsb",
+      "name": "LSB 102",
+      "number": "102",
+      "tempC": 22.5,
+      "humidity": 45,
+      "source": "mock"
+    },
+    {
+      "id": "lsb-104",
+      "buildingId": "lsb",
+      "name": "LSB 104",
+      "number": "104",
+      "tempC": 22.7,
+      "humidity": 47,
+      "source": "mock"
+    },
+    {
+      "id": "lsb-108",
+      "buildingId": "lsb",
+      "name": "LSB 108",
+      "number": "108",
+      "tempC": 23.1,
+      "humidity": 51,
+      "source": "mock"
+    },
+    {
+      "id": "lsb-109",
+      "buildingId": "lsb",
+      "name": "LSB 109",
+      "number": "109",
+      "tempC": 23.2,
+      "humidity": 52,
+      "source": "mock"
+    },
+    {
+      "id": "lsb-201",
+      "buildingId": "lsb",
+      "name": "LSB 201",
+      "number": "201",
+      "tempC": 28.5,
+      "humidity": 60,
+      "source": "mock"
+    },
+    {
+      "id": "lsb-202",
+      "buildingId": "lsb",
+      "name": "LSB 202",
+      "number": "202",
+      "tempC": 28.6,
+      "humidity": 61,
+      "source": "mock"
+    },
+    {
+      "id": "lsb-203",
+      "buildingId": "lsb",
+      "name": "LSB 203",
+      "number": "203",
+      "tempC": 28.7,
+      "humidity": 62,
+      "source": "mock"
+    },
+    {
+      "id": "lsb-204",
+      "buildingId": "lsb",
+      "name": "LSB 204",
+      "number": "204",
+      "tempC": 28.8,
+      "humidity": 63,
+      "source": "mock"
+    },
+    {
+      "id": "bsb-a",
+      "buildingId": "bsb",
+      "name": "BSB A",
+      "number": "A",
+      "tempC": 20.3,
+      "humidity": 73,
+      "source": "mock"
+    },
+    {
+      "id": "bsb-b",
+      "buildingId": "bsb",
+      "name": "BSB B",
+      "number": "B",
+      "tempC": 20.4,
+      "humidity": 74,
+      "source": "mock"
+    },
+    {
+      "id": "bsb-c",
+      "buildingId": "bsb",
+      "name": "BSB C",
+      "number": "C",
+      "tempC": 20.5,
+      "humidity": 40,
+      "source": "mock"
+    },
+    {
+      "id": "bsb-d",
+      "buildingId": "bsb",
+      "name": "BSB D",
+      "number": "D",
+      "tempC": 20.6,
+      "humidity": 41,
+      "source": "mock"
+    },
+    {
+      "id": "bsb-105",
+      "buildingId": "bsb",
+      "name": "BSB 105",
+      "number": "105",
+      "tempC": 28,
+      "humidity": 60,
+      "source": "mock"
+    },
+    {
+      "id": "bsb-106",
+      "buildingId": "bsb",
+      "name": "BSB 106",
+      "number": "106",
+      "tempC": 28.1,
+      "humidity": 61,
+      "source": "mock"
+    },
+    {
+      "id": "bsb-107",
+      "buildingId": "bsb",
+      "name": "BSB 107",
+      "number": "107",
+      "tempC": 28.2,
+      "humidity": 62,
+      "source": "mock"
+    },
+    {
+      "id": "bsb-108",
+      "buildingId": "bsb",
+      "name": "BSB 108",
+      "number": "108",
+      "tempC": 28.3,
+      "humidity": 63,
+      "source": "mock"
+    },
+    {
+      "id": "bsb-109",
+      "buildingId": "bsb",
+      "name": "BSB 109",
+      "number": "109",
+      "tempC": 28.4,
+      "humidity": 64,
+      "source": "mock"
+    },
+    {
+      "id": "bsb-110",
+      "buildingId": "bsb",
+      "name": "BSB 110",
+      "number": "110",
+      "tempC": 21.6,
+      "humidity": 51,
+      "source": "mock"
+    },
+    {
+      "id": "bsb-111",
+      "buildingId": "bsb",
+      "name": "BSB 111",
+      "number": "111",
+      "tempC": 21.7,
+      "humidity": 52,
+      "source": "mock"
+    },
+    {
+      "id": "bsb-201",
+      "buildingId": "bsb",
+      "name": "BSB 201",
+      "number": "201",
+      "tempC": 24.7,
+      "humidity": 72,
+      "source": "mock"
+    },
+    {
+      "id": "bsb-202",
+      "buildingId": "bsb",
+      "name": "BSB 202",
+      "number": "202",
+      "tempC": 24.8,
+      "humidity": 73,
+      "source": "mock"
+    },
+    {
+      "id": "bsb-203",
+      "buildingId": "bsb",
+      "name": "BSB 203",
+      "number": "203",
+      "tempC": 24.9,
+      "humidity": 74,
+      "source": "mock"
+    },
+    {
+      "id": "bsb-204",
+      "buildingId": "bsb",
+      "name": "BSB 204",
+      "number": "204",
+      "tempC": 25,
+      "humidity": 40,
+      "source": "mock"
+    },
+    {
+      "id": "steacie-001",
+      "buildingId": "steacie",
+      "name": "SSL 001",
+      "number": "001",
+      "tempC": 20.8,
+      "humidity": 58,
+      "source": "mock"
+    },
+    {
+      "id": "steacie-002",
+      "buildingId": "steacie",
+      "name": "SSL 002",
+      "number": "002",
+      "tempC": 20.9,
+      "humidity": 59,
+      "source": "mock"
+    },
+    {
+      "id": "steacie-101",
+      "buildingId": "steacie",
+      "name": "SSL 101",
+      "number": "101",
+      "tempC": 26.9,
+      "humidity": 74,
+      "source": "mock"
+    },
+    {
+      "id": "steacie-102",
+      "buildingId": "steacie",
+      "name": "SSL 102",
+      "number": "102",
+      "tempC": 27,
+      "humidity": 40,
+      "source": "mock"
+    },
+    {
+      "id": "tel-0001",
+      "buildingId": "tel",
+      "name": "TEL 0001",
+      "number": "0001",
+      "tempC": 26.9,
+      "humidity": 74,
+      "source": "mock"
+    },
+    {
+      "id": "tel-0002",
+      "buildingId": "tel",
+      "name": "TEL 0002",
+      "number": "0002",
+      "tempC": 27,
+      "humidity": 40,
+      "source": "mock"
+    },
+    {
+      "id": "tel-0004",
+      "buildingId": "tel",
+      "name": "TEL 0004",
+      "number": "0004",
+      "tempC": 27.2,
+      "humidity": 42,
+      "source": "mock"
+    },
+    {
+      "id": "tel-0006",
+      "buildingId": "tel",
+      "name": "TEL 0006",
+      "number": "0006",
+      "tempC": 27.4,
+      "humidity": 44,
+      "source": "mock"
+    },
+    {
+      "id": "tel-1001",
+      "buildingId": "tel",
+      "name": "TEL 1001",
+      "number": "1001",
+      "tempC": 27,
+      "humidity": 45,
+      "source": "mock"
+    },
+    {
+      "id": "tel-1005",
+      "buildingId": "tel",
+      "name": "TEL 1005",
+      "number": "1005",
+      "tempC": 27.4,
+      "humidity": 49,
+      "source": "mock"
+    },
+    {
+      "id": "tel-2001",
+      "buildingId": "tel",
+      "name": "TEL 2001",
+      "number": "2001",
+      "tempC": 27.1,
+      "humidity": 51,
+      "source": "mock"
+    },
+    {
+      "id": "tel-3001",
+      "buildingId": "tel",
+      "name": "TEL 3001",
+      "number": "3001",
+      "tempC": 27.2,
+      "humidity": 57,
+      "source": "mock"
+    },
+    {
+      "id": "tel-0003",
+      "buildingId": "tel",
+      "name": "TEL 0003",
+      "number": "0003",
+      "tempC": 27.1,
+      "humidity": 41,
+      "source": "mock"
+    },
+    {
+      "id": "tel-0005",
+      "buildingId": "tel",
+      "name": "TEL 0005",
+      "number": "0005",
+      "tempC": 27.3,
+      "humidity": 43,
+      "source": "mock"
+    },
+    {
+      "id": "tel-0007",
+      "buildingId": "tel",
+      "name": "TEL 0007",
+      "number": "0007",
+      "tempC": 27.5,
+      "humidity": 45,
+      "source": "mock"
+    },
+    {
+      "id": "tel-1002",
+      "buildingId": "tel",
+      "name": "TEL 1002",
+      "number": "1002",
+      "tempC": 27.1,
+      "humidity": 46,
+      "source": "mock"
+    },
+    {
+      "id": "tel-1003",
+      "buildingId": "tel",
+      "name": "TEL 1003",
+      "number": "1003",
+      "tempC": 27.2,
+      "humidity": 47,
+      "source": "mock"
+    },
+    {
+      "id": "tel-1004",
+      "buildingId": "tel",
+      "name": "TEL 1004",
+      "number": "1004",
+      "tempC": 27.3,
+      "humidity": 48,
+      "source": "mock"
+    },
+    {
+      "id": "tel-2002",
+      "buildingId": "tel",
+      "name": "TEL 2002",
+      "number": "2002",
+      "tempC": 27.2,
+      "humidity": 52,
+      "source": "mock"
+    },
+    {
+      "id": "tel-2003",
+      "buildingId": "tel",
+      "name": "TEL 2003",
+      "number": "2003",
+      "tempC": 27.3,
+      "humidity": 53,
+      "source": "mock"
+    },
+    {
+      "id": "tel-3002",
+      "buildingId": "tel",
+      "name": "TEL 3002",
+      "number": "3002",
+      "tempC": 27.3,
+      "humidity": 58,
+      "source": "mock"
+    },
+    {
+      "id": "tel-3003",
+      "buildingId": "tel",
+      "name": "TEL 3003",
+      "number": "3003",
+      "tempC": 27.4,
+      "humidity": 59,
+      "source": "mock"
+    },
+    {
+      "id": "dahdaleh-0001",
+      "buildingId": "dahdaleh",
+      "name": "DB 0001",
+      "number": "0001",
+      "tempC": 23.7,
+      "humidity": 72,
+      "source": "mock"
+    },
+    {
+      "id": "dahdaleh-0010",
+      "buildingId": "dahdaleh",
+      "name": "DB 0010",
+      "number": "0010",
+      "tempC": 26.7,
+      "humidity": 67,
+      "source": "mock"
+    },
+    {
+      "id": "dahdaleh-0014",
+      "buildingId": "dahdaleh",
+      "name": "DB 0014",
+      "number": "0014",
+      "tempC": 27.1,
+      "humidity": 71,
+      "source": "mock"
+    },
+    {
+      "id": "dahdaleh-1005",
+      "buildingId": "dahdaleh",
+      "name": "DB 1005",
+      "number": "1005",
+      "tempC": 24.2,
+      "humidity": 47,
+      "source": "mock"
+    },
+    {
+      "id": "dahdaleh-1014",
+      "buildingId": "dahdaleh",
+      "name": "DB 1014",
+      "number": "1014",
+      "tempC": 27.2,
+      "humidity": 42,
+      "source": "mock"
+    },
+    {
+      "id": "dahdaleh-1016",
+      "buildingId": "dahdaleh",
+      "name": "DB 1016",
+      "number": "1016",
+      "tempC": 27.4,
+      "humidity": 44,
+      "source": "mock"
+    },
+    {
+      "id": "dahdaleh-2005",
+      "buildingId": "dahdaleh",
+      "name": "DB 2005",
+      "number": "2005",
+      "tempC": 24.3,
+      "humidity": 53,
+      "source": "mock"
+    },
+    {
+      "id": "dahdaleh-0002",
+      "buildingId": "dahdaleh",
+      "name": "DB 0002",
+      "number": "0002",
+      "tempC": 23.8,
+      "humidity": 73,
+      "source": "mock"
+    },
+    {
+      "id": "dahdaleh-0003",
+      "buildingId": "dahdaleh",
+      "name": "DB 0003",
+      "number": "0003",
+      "tempC": 23.9,
+      "humidity": 74,
+      "source": "mock"
+    },
+    {
+      "id": "dahdaleh-1001",
+      "buildingId": "dahdaleh",
+      "name": "DB 1001",
+      "number": "1001",
+      "tempC": 23.8,
+      "humidity": 43,
+      "source": "mock"
+    },
+    {
+      "id": "dahdaleh-1002",
+      "buildingId": "dahdaleh",
+      "name": "DB 1002",
+      "number": "1002",
+      "tempC": 23.9,
+      "humidity": 44,
+      "source": "mock"
+    },
+    {
+      "id": "dahdaleh-1003",
+      "buildingId": "dahdaleh",
+      "name": "DB 1003",
+      "number": "1003",
+      "tempC": 24,
+      "humidity": 45,
+      "source": "mock"
+    },
+    {
+      "id": "dahdaleh-2001",
+      "buildingId": "dahdaleh",
+      "name": "DB 2001",
+      "number": "2001",
+      "tempC": 23.9,
+      "humidity": 49,
+      "source": "mock"
+    },
+    {
+      "id": "dahdaleh-2002",
+      "buildingId": "dahdaleh",
+      "name": "DB 2002",
+      "number": "2002",
+      "tempC": 24,
+      "humidity": 50,
+      "source": "mock"
+    },
+    {
+      "id": "dahdaleh-2003",
+      "buildingId": "dahdaleh",
+      "name": "DB 2003",
+      "number": "2003",
+      "tempC": 24.1,
+      "humidity": 51,
+      "source": "mock"
+    },
+    {
+      "id": "dahdaleh-2004",
+      "buildingId": "dahdaleh",
+      "name": "DB 2004",
+      "number": "2004",
+      "tempC": 24.2,
+      "humidity": 52,
+      "source": "mock"
+    },
+    {
+      "id": "founders-103",
+      "buildingId": "founders",
+      "name": "FC 103",
+      "number": "103",
+      "tempC": 23.5,
+      "humidity": 55,
+      "source": "mock"
+    },
+    {
+      "id": "founders-105",
+      "buildingId": "founders",
+      "name": "FC 105",
+      "number": "105",
+      "tempC": 23.7,
+      "humidity": 57,
+      "source": "mock"
+    },
+    {
+      "id": "founders-106",
+      "buildingId": "founders",
+      "name": "FC 106",
+      "number": "106",
+      "tempC": 23.8,
+      "humidity": 58,
+      "source": "mock"
+    },
+    {
+      "id": "founders-203",
+      "buildingId": "founders",
+      "name": "FC 203",
+      "number": "203",
+      "tempC": 20.6,
+      "humidity": 71,
+      "source": "mock"
+    },
+    {
+      "id": "founders-204",
+      "buildingId": "founders",
+      "name": "FC 204",
+      "number": "204",
+      "tempC": 20.7,
+      "humidity": 72,
+      "source": "mock"
+    },
+    {
+      "id": "founders-205",
+      "buildingId": "founders",
+      "name": "FC 205",
+      "number": "205",
+      "tempC": 20.8,
+      "humidity": 73,
+      "source": "mock"
+    },
+    {
+      "id": "vanier-101",
+      "buildingId": "vanier",
+      "name": "VC 101",
+      "number": "101",
+      "tempC": 28,
+      "humidity": 70,
+      "source": "mock"
+    },
+    {
+      "id": "vanier-102",
+      "buildingId": "vanier",
+      "name": "VC 102",
+      "number": "102",
+      "tempC": 28.1,
+      "humidity": 71,
+      "source": "mock"
+    },
+    {
+      "id": "vanier-103",
+      "buildingId": "vanier",
+      "name": "VC 103",
+      "number": "103",
+      "tempC": 28.2,
+      "humidity": 72,
+      "source": "mock"
+    },
+    {
+      "id": "vanier-104",
+      "buildingId": "vanier",
+      "name": "VC 104",
+      "number": "104",
+      "tempC": 28.3,
+      "humidity": 73,
+      "source": "mock"
+    },
+    {
+      "id": "vanier-115",
+      "buildingId": "vanier",
+      "name": "VC 115",
+      "number": "115",
+      "tempC": 22.5,
+      "humidity": 70,
+      "source": "mock"
+    },
+    {
+      "id": "vanier-135",
+      "buildingId": "vanier",
+      "name": "VC 135",
+      "number": "135",
+      "tempC": 28.7,
+      "humidity": 62,
+      "source": "mock"
+    },
+    {
+      "id": "winters-115",
+      "buildingId": "winters",
+      "name": "WC 115",
+      "number": "115",
+      "tempC": 28.8,
+      "humidity": 43,
+      "source": "mock"
+    },
+    {
+      "id": "winters-116",
+      "buildingId": "winters",
+      "name": "WC 116",
+      "number": "116",
+      "tempC": 28.9,
+      "humidity": 44,
+      "source": "mock"
+    },
+    {
+      "id": "winters-117",
+      "buildingId": "winters",
+      "name": "WC 117",
+      "number": "117",
+      "tempC": 20,
+      "humidity": 45,
+      "source": "mock"
+    },
+    {
+      "id": "winters-135",
+      "buildingId": "winters",
+      "name": "WC 135",
+      "number": "135",
+      "tempC": 26,
+      "humidity": 70,
+      "source": "mock"
+    },
+    {
+      "id": "winters-136",
+      "buildingId": "winters",
+      "name": "WC 136",
+      "number": "136",
+      "tempC": 26.1,
+      "humidity": 71,
+      "source": "mock"
+    },
+    {
+      "id": "mclaughlin-109",
+      "buildingId": "mclaughlin",
+      "name": "MC 109",
+      "number": "109",
+      "tempC": 28.5,
+      "humidity": 45,
+      "source": "mock"
+    },
+    {
+      "id": "mclaughlin-111",
+      "buildingId": "mclaughlin",
+      "name": "MC 111",
+      "number": "111",
+      "tempC": 21.8,
+      "humidity": 68,
+      "source": "mock"
+    },
+    {
+      "id": "mclaughlin-113",
+      "buildingId": "mclaughlin",
+      "name": "MC 113",
+      "number": "113",
+      "tempC": 22,
+      "humidity": 70,
+      "source": "mock"
+    },
+    {
+      "id": "mclaughlin-114",
+      "buildingId": "mclaughlin",
+      "name": "MC 114",
+      "number": "114",
+      "tempC": 22.1,
+      "humidity": 71,
+      "source": "mock"
+    },
+    {
+      "id": "mclaughlin-215",
+      "buildingId": "mclaughlin",
+      "name": "MC 215",
+      "number": "215",
+      "tempC": 28.3,
+      "humidity": 53,
+      "source": "mock"
+    },
+    {
+      "id": "stong-101",
+      "buildingId": "stong",
+      "name": "SC 101",
+      "number": "101",
+      "tempC": 24.8,
+      "humidity": 58,
+      "source": "mock"
+    },
+    {
+      "id": "stong-102",
+      "buildingId": "stong",
+      "name": "SC 102",
+      "number": "102",
+      "tempC": 24.9,
+      "humidity": 59,
+      "source": "mock"
+    },
+    {
+      "id": "stong-103",
+      "buildingId": "stong",
+      "name": "SC 103",
+      "number": "103",
+      "tempC": 25,
+      "humidity": 60,
+      "source": "mock"
+    },
+    {
+      "id": "stong-104",
+      "buildingId": "stong",
+      "name": "SC 104",
+      "number": "104",
+      "tempC": 25.1,
+      "humidity": 61,
+      "source": "mock"
+    },
+    {
+      "id": "stong-201",
+      "buildingId": "stong",
+      "name": "SC 201",
+      "number": "201",
+      "tempC": 21.9,
+      "humidity": 74,
+      "source": "mock"
+    },
+    {
+      "id": "bethune-203",
+      "buildingId": "bethune",
+      "name": "BC 203",
+      "number": "203",
+      "tempC": 21.5,
+      "humidity": 50,
+      "source": "mock"
+    },
+    {
+      "id": "bethune-204",
+      "buildingId": "bethune",
+      "name": "BC 204",
+      "number": "204",
+      "tempC": 21.6,
+      "humidity": 51,
+      "source": "mock"
+    },
+    {
+      "id": "bethune-205",
+      "buildingId": "bethune",
+      "name": "BC 205",
+      "number": "205",
+      "tempC": 21.7,
+      "humidity": 52,
+      "source": "mock"
+    },
+    {
+      "id": "bethune-215",
+      "buildingId": "bethune",
+      "name": "BC 215",
+      "number": "215",
+      "tempC": 24.8,
+      "humidity": 48,
+      "source": "mock"
+    },
+    {
+      "id": "bethune-320",
+      "buildingId": "bethune",
+      "name": "BC 320",
+      "number": "320",
+      "tempC": 24.5,
+      "humidity": 55,
+      "source": "mock"
+    },
+    {
+      "id": "calumet-101",
+      "buildingId": "calumet",
+      "name": "CC 101",
+      "number": "101",
+      "tempC": 23.8,
+      "humidity": 73,
+      "source": "mock"
+    },
+    {
+      "id": "calumet-102",
+      "buildingId": "calumet",
+      "name": "CC 102",
+      "number": "102",
+      "tempC": 23.9,
+      "humidity": 74,
+      "source": "mock"
+    },
+    {
+      "id": "calumet-108",
+      "buildingId": "calumet",
+      "name": "CC 108",
+      "number": "108",
+      "tempC": 24.5,
+      "humidity": 45,
+      "source": "mock"
+    },
+    {
+      "id": "calumet-109",
+      "buildingId": "calumet",
+      "name": "CC 109",
+      "number": "109",
+      "tempC": 24.6,
+      "humidity": 46,
+      "source": "mock"
+    },
+    {
+      "id": "calumet-210",
+      "buildingId": "calumet",
+      "name": "CC 210",
+      "number": "210",
+      "tempC": 23.9,
+      "humidity": 49,
+      "source": "mock"
+    },
+    {
+      "id": "atkinson-001",
+      "buildingId": "atkinson",
+      "name": "ATK 001",
+      "number": "001",
+      "tempC": 24.1,
+      "humidity": 41,
+      "source": "mock"
+    },
+    {
+      "id": "atkinson-002",
+      "buildingId": "atkinson",
+      "name": "ATK 002",
+      "number": "002",
+      "tempC": 24.2,
+      "humidity": 42,
+      "source": "mock"
+    },
+    {
+      "id": "atkinson-003",
+      "buildingId": "atkinson",
+      "name": "ATK 003",
+      "number": "003",
+      "tempC": 24.3,
+      "humidity": 43,
+      "source": "mock"
+    },
+    {
+      "id": "atkinson-004",
+      "buildingId": "atkinson",
+      "name": "ATK 004",
+      "number": "004",
+      "tempC": 24.4,
+      "humidity": 44,
+      "source": "mock"
+    },
+    {
+      "id": "atkinson-005",
+      "buildingId": "atkinson",
+      "name": "ATK 005",
+      "number": "005",
+      "tempC": 24.5,
+      "humidity": 45,
+      "source": "mock"
+    },
+    {
+      "id": "atkinson-009",
+      "buildingId": "atkinson",
+      "name": "ATK 009",
+      "number": "009",
+      "tempC": 24.9,
+      "humidity": 49,
+      "source": "mock"
+    },
+    {
+      "id": "atkinson-006",
+      "buildingId": "atkinson",
+      "name": "ATK 006",
+      "number": "006",
+      "tempC": 24.6,
+      "humidity": 46,
+      "source": "mock"
+    },
+    {
+      "id": "atkinson-007",
+      "buildingId": "atkinson",
+      "name": "ATK 007",
+      "number": "007",
+      "tempC": 24.7,
+      "humidity": 47,
+      "source": "mock"
+    },
+    {
+      "id": "atkinson-008",
+      "buildingId": "atkinson",
+      "name": "ATK 008",
+      "number": "008",
+      "tempC": 24.8,
+      "humidity": 48,
+      "source": "mock"
+    },
+    {
+      "id": "atkinson-009",
+      "buildingId": "atkinson",
+      "name": "ATK 009",
+      "number": "009",
+      "tempC": 24.9,
+      "humidity": 49,
+      "source": "mock"
+    },
+    {
+      "id": "atkinson-010",
+      "buildingId": "atkinson",
+      "name": "ATK 010",
+      "number": "010",
+      "tempC": 27.1,
+      "humidity": 71,
+      "source": "mock"
+    },
+    {
+      "id": "atkinson-011",
+      "buildingId": "atkinson",
+      "name": "ATK 011",
+      "number": "011",
+      "tempC": 27.2,
+      "humidity": 72,
+      "source": "mock"
+    },
+    {
+      "id": "atkinson-012",
+      "buildingId": "atkinson",
+      "name": "ATK 012",
+      "number": "012",
+      "tempC": 27.3,
+      "humidity": 73,
+      "source": "mock"
+    },
+    {
+      "id": "schulich-e111",
+      "buildingId": "schulich",
+      "name": "SSB E111",
+      "number": "E111",
+      "tempC": 28.8,
+      "humidity": 63,
+      "source": "mock"
+    },
+    {
+      "id": "schulich-e112",
+      "buildingId": "schulich",
+      "name": "SSB E112",
+      "number": "E112",
+      "tempC": 28.9,
+      "humidity": 64,
+      "source": "mock"
+    },
+    {
+      "id": "schulich-n100",
+      "buildingId": "schulich",
+      "name": "SSB N100",
+      "number": "N100",
+      "tempC": 26.5,
+      "humidity": 50,
+      "source": "mock"
+    },
+    {
+      "id": "schulich-n109",
+      "buildingId": "schulich",
+      "name": "SSB N109",
+      "number": "N109",
+      "tempC": 27.4,
+      "humidity": 59,
+      "source": "mock"
+    },
+    {
+      "id": "schulich-s123",
+      "buildingId": "schulich",
+      "name": "SSB S123",
+      "number": "S123",
+      "tempC": 24.5,
+      "humidity": 40,
+      "source": "mock"
+    },
+    {
+      "id": "schulich-s128",
+      "buildingId": "schulich",
+      "name": "SSB S128",
+      "number": "S128",
+      "tempC": 25,
+      "humidity": 45,
+      "source": "mock"
+    },
+    {
+      "id": "schulich-w132",
+      "buildingId": "schulich",
+      "name": "SSB W132",
+      "number": "W132",
+      "tempC": 27.9,
+      "humidity": 59,
+      "source": "mock"
+    },
+    {
+      "id": "schulich-w253",
+      "buildingId": "schulich",
+      "name": "SSB W253",
+      "number": "W253",
+      "tempC": 22.3,
+      "humidity": 68,
+      "source": "mock"
+    },
+    {
+      "id": "schulich-e113",
+      "buildingId": "schulich",
+      "name": "SSB E113",
+      "number": "E113",
+      "tempC": 20,
+      "humidity": 65,
+      "source": "mock"
+    },
+    {
+      "id": "schulich-e114",
+      "buildingId": "schulich",
+      "name": "SSB E114",
+      "number": "E114",
+      "tempC": 20.1,
+      "humidity": 66,
+      "source": "mock"
+    },
+    {
+      "id": "schulich-n101",
+      "buildingId": "schulich",
+      "name": "SSB N101",
+      "number": "N101",
+      "tempC": 26.6,
+      "humidity": 51,
+      "source": "mock"
+    },
+    {
+      "id": "schulich-n102",
+      "buildingId": "schulich",
+      "name": "SSB N102",
+      "number": "N102",
+      "tempC": 26.7,
+      "humidity": 52,
+      "source": "mock"
+    },
+    {
+      "id": "schulich-n103",
+      "buildingId": "schulich",
+      "name": "SSB N103",
+      "number": "N103",
+      "tempC": 26.8,
+      "humidity": 53,
+      "source": "mock"
+    },
+    {
+      "id": "schulich-s124",
+      "buildingId": "schulich",
+      "name": "SSB S124",
+      "number": "S124",
+      "tempC": 24.6,
+      "humidity": 41,
+      "source": "mock"
+    },
+    {
+      "id": "schulich-s125",
+      "buildingId": "schulich",
+      "name": "SSB S125",
+      "number": "S125",
+      "tempC": 24.7,
+      "humidity": 42,
+      "source": "mock"
+    },
+    {
+      "id": "schulich-w134",
+      "buildingId": "schulich",
+      "name": "SSB W134",
+      "number": "W134",
+      "tempC": 28.1,
+      "humidity": 61,
+      "source": "mock"
+    },
+    {
+      "id": "schulich-w135",
+      "buildingId": "schulich",
+      "name": "SSB W135",
+      "number": "W135",
+      "tempC": 28.2,
+      "humidity": 62,
+      "source": "mock"
+    },
+    {
+      "id": "osgoode-1001",
+      "buildingId": "osgoode",
+      "name": "OSG 1001",
+      "number": "1001",
+      "tempC": 24.1,
+      "humidity": 56,
+      "source": "mock"
+    },
+    {
+      "id": "osgoode-1002",
+      "buildingId": "osgoode",
+      "name": "OSG 1002",
+      "number": "1002",
+      "tempC": 24.2,
+      "humidity": 57,
+      "source": "mock"
+    },
+    {
+      "id": "osgoode-1003",
+      "buildingId": "osgoode",
+      "name": "OSG 1003",
+      "number": "1003",
+      "tempC": 24.3,
+      "humidity": 58,
+      "source": "mock"
+    },
+    {
+      "id": "osgoode-2001",
+      "buildingId": "osgoode",
+      "name": "OSG 2001",
+      "number": "2001",
+      "tempC": 24.2,
+      "humidity": 62,
+      "source": "mock"
+    },
+    {
+      "id": "osgoode-2002",
+      "buildingId": "osgoode",
+      "name": "OSG 2002",
+      "number": "2002",
+      "tempC": 24.3,
+      "humidity": 63,
+      "source": "mock"
+    },
+    {
+      "id": "osgoode-1004",
+      "buildingId": "osgoode",
+      "name": "OSG 1004",
+      "number": "1004",
+      "tempC": 24.4,
+      "humidity": 59,
+      "source": "mock"
+    },
+    {
+      "id": "osgoode-1005",
+      "buildingId": "osgoode",
+      "name": "OSG 1005",
+      "number": "1005",
+      "tempC": 24.5,
+      "humidity": 60,
+      "source": "mock"
+    },
+    {
+      "id": "osgoode-2003",
+      "buildingId": "osgoode",
+      "name": "OSG 2003",
+      "number": "2003",
+      "tempC": 24.4,
+      "humidity": 64,
+      "source": "mock"
+    },
+    {
+      "id": "osgoode-2004",
+      "buildingId": "osgoode",
+      "name": "OSG 2004",
+      "number": "2004",
+      "tempC": 24.5,
+      "humidity": 65,
+      "source": "mock"
+    },
+    {
+      "id": "osgoode-2005",
+      "buildingId": "osgoode",
+      "name": "OSG 2005",
+      "number": "2005",
+      "tempC": 24.6,
+      "humidity": 66,
+      "source": "mock"
+    },
+    {
+      "id": "osgoode-3001",
+      "buildingId": "osgoode",
+      "name": "OSG 3001",
+      "number": "3001",
+      "tempC": 24.3,
+      "humidity": 68,
+      "source": "mock"
+    },
+    {
+      "id": "osgoode-3002",
+      "buildingId": "osgoode",
+      "name": "OSG 3002",
+      "number": "3002",
+      "tempC": 24.4,
+      "humidity": 69,
+      "source": "mock"
+    },
+    {
+      "id": "health-nursing-101",
+      "buildingId": "health-nursing",
+      "name": "HNES 101",
+      "number": "101",
+      "tempC": 28.8,
+      "humidity": 63,
+      "source": "mock"
+    },
+    {
+      "id": "health-nursing-102",
+      "buildingId": "health-nursing",
+      "name": "HNES 102",
+      "number": "102",
+      "tempC": 28.9,
+      "humidity": 64,
+      "source": "mock"
+    },
+    {
+      "id": "health-nursing-103",
+      "buildingId": "health-nursing",
+      "name": "HNES 103",
+      "number": "103",
+      "tempC": 20,
+      "humidity": 65,
+      "source": "mock"
+    },
+    {
+      "id": "health-nursing-104",
+      "buildingId": "health-nursing",
+      "name": "HNES 104",
+      "number": "104",
+      "tempC": 20.1,
+      "humidity": 66,
+      "source": "mock"
+    },
+    {
+      "id": "health-nursing-036",
+      "buildingId": "health-nursing",
+      "name": "HNES 036",
+      "number": "036",
+      "tempC": 23.5,
+      "humidity": 40,
+      "source": "mock"
+    },
+    {
+      "id": "kaneff-519",
+      "buildingId": "kaneff",
+      "name": "KT 519",
+      "number": "519",
+      "tempC": 27.3,
+      "humidity": 73,
+      "source": "mock"
+    },
+    {
+      "id": "kaneff-520",
+      "buildingId": "kaneff",
+      "name": "KT 520",
+      "number": "520",
+      "tempC": 20.5,
+      "humidity": 60,
+      "source": "mock"
+    },
+    {
+      "id": "kaneff-521",
+      "buildingId": "kaneff",
+      "name": "KT 521",
+      "number": "521",
+      "tempC": 20.6,
+      "humidity": 61,
+      "source": "mock"
+    },
+    {
+      "id": "kaneff-701",
+      "buildingId": "kaneff",
+      "name": "KT 701",
+      "number": "701",
+      "tempC": 26.6,
+      "humidity": 66,
+      "source": "mock"
+    },
+    {
+      "id": "kaneff-702",
+      "buildingId": "kaneff",
+      "name": "KT 702",
+      "number": "702",
+      "tempC": 26.7,
+      "humidity": 67,
+      "source": "mock"
+    },
+    {
+      "id": "william-small-n100",
+      "buildingId": "william-small",
+      "name": "WSC N100",
+      "number": "N100",
+      "tempC": 20.3,
+      "humidity": 58,
+      "source": "mock"
+    },
+    {
+      "id": "william-small-n101",
+      "buildingId": "william-small",
+      "name": "WSC N101",
+      "number": "N101",
+      "tempC": 20.4,
+      "humidity": 59,
+      "source": "mock"
+    },
+    {
+      "id": "william-small-n102",
+      "buildingId": "william-small",
+      "name": "WSC N102",
+      "number": "N102",
+      "tempC": 20.5,
+      "humidity": 60,
+      "source": "mock"
+    },
+    {
+      "id": "william-small-n105",
+      "buildingId": "william-small",
+      "name": "WSC N105",
+      "number": "N105",
+      "tempC": 20.8,
+      "humidity": 63,
+      "source": "mock"
+    },
+    {
+      "id": "central-square-109",
+      "buildingId": "central-square",
+      "name": "CSQ 109",
+      "number": "109",
+      "tempC": 27.8,
+      "humidity": 48,
+      "source": "mock"
+    },
+    {
+      "id": "central-square-110",
+      "buildingId": "central-square",
+      "name": "CSQ 110",
+      "number": "110",
+      "tempC": 21,
+      "humidity": 70,
+      "source": "mock"
+    },
+    {
+      "id": "central-square-111",
+      "buildingId": "central-square",
+      "name": "CSQ 111",
+      "number": "111",
+      "tempC": 21.1,
+      "humidity": 71,
+      "source": "mock"
+    },
+    {
+      "id": "scott-102",
+      "buildingId": "scott",
+      "name": "SCL 102",
+      "number": "102",
+      "tempC": 22.5,
+      "humidity": 50,
+      "source": "mock"
+    },
+    {
+      "id": "scott-103",
+      "buildingId": "scott",
+      "name": "SCL 103",
+      "number": "103",
+      "tempC": 22.6,
+      "humidity": 51,
+      "source": "mock"
+    },
+    {
+      "id": "scott-104",
+      "buildingId": "scott",
+      "name": "SCL 104",
+      "number": "104",
+      "tempC": 22.7,
+      "humidity": 52,
+      "source": "mock"
+    },
+    {
+      "id": "scott-205",
+      "buildingId": "scott",
+      "name": "SCL 205",
+      "number": "205",
+      "tempC": 28.9,
+      "humidity": 69,
+      "source": "mock"
+    },
+    {
+      "id": "york-lanes-109",
+      "buildingId": "york-lanes",
+      "name": "YL 109",
+      "number": "109",
+      "tempC": 20,
+      "humidity": 55,
+      "source": "mock"
+    },
+    {
+      "id": "york-lanes-190",
+      "buildingId": "york-lanes",
+      "name": "YL 190",
+      "number": "190",
+      "tempC": 20,
+      "humidity": 45,
+      "source": "mock"
+    },
+    {
+      "id": "york-lanes-191",
+      "buildingId": "york-lanes",
+      "name": "YL 191",
+      "number": "191",
+      "tempC": 20.1,
+      "humidity": 46,
+      "source": "mock"
+    },
+    {
+      "id": "podium-250",
+      "buildingId": "podium",
+      "name": "POD 250",
+      "number": "250",
+      "tempC": 23.8,
+      "humidity": 43,
+      "source": "mock"
+    },
+    {
+      "id": "podium-251",
+      "buildingId": "podium",
+      "name": "POD 251",
+      "number": "251",
+      "tempC": 23.9,
+      "humidity": 44,
+      "source": "mock"
+    },
+    {
+      "id": "podium-252",
+      "buildingId": "podium",
+      "name": "POD 252",
+      "number": "252",
+      "tempC": 24,
+      "humidity": 45,
+      "source": "mock"
+    },
+    {
+      "id": "podium-253",
+      "buildingId": "podium",
+      "name": "POD 253",
+      "number": "253",
+      "tempC": 24.1,
+      "humidity": 46,
+      "source": "mock"
+    },
+    {
+      "id": "podium-370",
+      "buildingId": "podium",
+      "name": "POD 370",
+      "number": "370",
+      "tempC": 27.1,
+      "humidity": 51,
+      "source": "mock"
+    },
+    {
+      "id": "lumbers-101",
+      "buildingId": "lumbers",
+      "name": "LUM 101",
+      "number": "101",
+      "tempC": 22.7,
+      "humidity": 52,
+      "source": "mock"
+    },
+    {
+      "id": "lumbers-102",
+      "buildingId": "lumbers",
+      "name": "LUM 102",
+      "number": "102",
+      "tempC": 22.8,
+      "humidity": 53,
+      "source": "mock"
+    },
+    {
+      "id": "lumbers-103",
+      "buildingId": "lumbers",
+      "name": "LUM 103",
+      "number": "103",
+      "tempC": 22.9,
+      "humidity": 54,
+      "source": "mock"
+    },
+    {
+      "id": "lumbers-104",
+      "buildingId": "lumbers",
+      "name": "LUM 104",
+      "number": "104",
+      "tempC": 23,
+      "humidity": 55,
+      "source": "mock"
+    },
+    {
+      "id": "physical-resources-100",
+      "buildingId": "physical-resources",
+      "name": "PRB 100",
+      "number": "100",
+      "tempC": 26.5,
+      "humidity": 50,
+      "source": "mock"
+    },
+    {
+      "id": "physical-resources-101",
+      "buildingId": "physical-resources",
+      "name": "PRB 101",
+      "number": "101",
+      "tempC": 26.6,
+      "humidity": 51,
+      "source": "mock"
+    },
+    {
+      "id": "physical-resources-102",
+      "buildingId": "physical-resources",
+      "name": "PRB 102",
+      "number": "102",
+      "tempC": 26.7,
+      "humidity": 52,
+      "source": "mock"
+    },
+    {
+      "id": "fine-arts-112",
+      "buildingId": "fine-arts",
+      "name": "CFA 112",
+      "number": "112",
+      "tempC": 25.4,
+      "humidity": 49,
+      "source": "mock"
+    },
+    {
+      "id": "fine-arts-113",
+      "buildingId": "fine-arts",
+      "name": "CFA 113",
+      "number": "113",
+      "tempC": 25.5,
+      "humidity": 50,
+      "source": "mock"
+    },
+    {
+      "id": "fine-arts-114",
+      "buildingId": "fine-arts",
+      "name": "CFA 114",
+      "number": "114",
+      "tempC": 25.6,
+      "humidity": 51,
+      "source": "mock"
+    },
+    {
+      "id": "fine-arts-204",
+      "buildingId": "fine-arts",
+      "name": "CFA 204",
+      "number": "204",
+      "tempC": 28.6,
+      "humidity": 71,
+      "source": "mock"
+    },
+    {
+      "id": "fine-arts-205",
+      "buildingId": "fine-arts",
+      "name": "CFA 205",
+      "number": "205",
+      "tempC": 28.7,
+      "humidity": 72,
+      "source": "mock"
+    },
+    {
+      "id": "centre-film-101",
+      "buildingId": "centre-film",
+      "name": "CFT 101",
+      "number": "101",
+      "tempC": 22.1,
+      "humidity": 66,
+      "source": "mock"
+    },
+    {
+      "id": "centre-film-102",
+      "buildingId": "centre-film",
+      "name": "CFT 102",
+      "number": "102",
+      "tempC": 22.2,
+      "humidity": 67,
+      "source": "mock"
+    },
+    {
+      "id": "centre-film-103",
+      "buildingId": "centre-film",
+      "name": "CFT 103",
+      "number": "103",
+      "tempC": 22.3,
+      "humidity": 68,
+      "source": "mock"
+    },
+    {
+      "id": "centre-film-104",
+      "buildingId": "centre-film",
+      "name": "CFT 104",
+      "number": "104",
+      "tempC": 22.4,
+      "humidity": 69,
+      "source": "mock"
+    },
+    {
+      "id": "centre-film-105",
+      "buildingId": "centre-film",
+      "name": "CFT 105",
+      "number": "105",
+      "tempC": 22.5,
+      "humidity": 70,
+      "source": "mock"
+    },
+    {
+      "id": "seneca-at-york-101",
+      "buildingId": "seneca-at-york",
+      "name": "SaY 101",
+      "number": "101",
+      "tempC": 24.4,
+      "humidity": 54,
+      "source": "mock"
+    },
+    {
+      "id": "seneca-at-york-102",
+      "buildingId": "seneca-at-york",
+      "name": "SaY 102",
+      "number": "102",
+      "tempC": 24.5,
+      "humidity": 55,
+      "source": "mock"
+    },
+    {
+      "id": "seneca-at-york-103",
+      "buildingId": "seneca-at-york",
+      "name": "SaY 103",
+      "number": "103",
+      "tempC": 24.6,
+      "humidity": 56,
+      "source": "mock"
+    },
+    {
+      "id": "seneca-at-york-104",
+      "buildingId": "seneca-at-york",
+      "name": "SaY 104",
+      "number": "104",
+      "tempC": 24.7,
+      "humidity": 57,
+      "source": "mock"
+    },
+    {
+      "id": "seneca-at-york-201",
+      "buildingId": "seneca-at-york",
+      "name": "SaY 201",
+      "number": "201",
+      "tempC": 21.5,
+      "humidity": 70,
+      "source": "mock"
+    },
+    {
+      "id": "seneca-at-york-202",
+      "buildingId": "seneca-at-york",
+      "name": "SaY 202",
+      "number": "202",
+      "tempC": 21.6,
+      "humidity": 71,
+      "source": "mock"
+    },
+    {
+      "id": "seneca-at-york-203",
+      "buildingId": "seneca-at-york",
+      "name": "SaY 203",
+      "number": "203",
+      "tempC": 21.7,
+      "humidity": 72,
+      "source": "mock"
+    },
+    {
+      "id": "seneca-at-york-204",
+      "buildingId": "seneca-at-york",
+      "name": "SaY 204",
+      "number": "204",
+      "tempC": 21.8,
+      "humidity": 73,
+      "source": "mock"
+    },
+    {
+      "id": "seneca-at-york-301",
+      "buildingId": "seneca-at-york",
+      "name": "SaY 301",
+      "number": "301",
+      "tempC": 27.6,
+      "humidity": 51,
+      "source": "mock"
+    },
+    {
+      "id": "seneca-at-york-302",
+      "buildingId": "seneca-at-york",
+      "name": "SaY 302",
+      "number": "302",
+      "tempC": 27.7,
+      "humidity": 52,
+      "source": "mock"
+    },
+    {
+      "id": "tait-mckenzie-101",
+      "buildingId": "tait-mckenzie",
+      "name": "TM 101",
+      "number": "101",
+      "tempC": 27.4,
+      "humidity": 74,
+      "source": "mock"
+    },
+    {
+      "id": "tait-mckenzie-102",
+      "buildingId": "tait-mckenzie",
+      "name": "TM 102",
+      "number": "102",
+      "tempC": 27.5,
+      "humidity": 40,
+      "source": "mock"
+    },
+    {
+      "id": "tait-mckenzie-103",
+      "buildingId": "tait-mckenzie",
+      "name": "TM 103",
+      "number": "103",
+      "tempC": 27.6,
+      "humidity": 41,
+      "source": "mock"
+    },
+    {
+      "id": "tait-mckenzie-201",
+      "buildingId": "tait-mckenzie",
+      "name": "TM 201",
+      "number": "201",
+      "tempC": 24.5,
+      "humidity": 55,
+      "source": "mock"
+    },
+    {
+      "id": "tait-mckenzie-202",
+      "buildingId": "tait-mckenzie",
+      "name": "TM 202",
+      "number": "202",
+      "tempC": 24.6,
+      "humidity": 56,
+      "source": "mock"
+    },
+    {
+      "id": "tait-mckenzie-203",
+      "buildingId": "tait-mckenzie",
+      "name": "TM 203",
+      "number": "203",
+      "tempC": 24.7,
+      "humidity": 57,
+      "source": "mock"
+    },
+    {
+      "id": "ignat-kaneff-1001",
+      "buildingId": "ignat-kaneff",
+      "name": "IKB 1001",
+      "number": "1001",
+      "tempC": 26.4,
+      "humidity": 74,
+      "source": "mock"
+    },
+    {
+      "id": "ignat-kaneff-1002",
+      "buildingId": "ignat-kaneff",
+      "name": "IKB 1002",
+      "number": "1002",
+      "tempC": 26.5,
+      "humidity": 40,
+      "source": "mock"
+    },
+    {
+      "id": "ignat-kaneff-1003",
+      "buildingId": "ignat-kaneff",
+      "name": "IKB 1003",
+      "number": "1003",
+      "tempC": 26.6,
+      "humidity": 41,
+      "source": "mock"
+    },
+    {
+      "id": "ignat-kaneff-2001",
+      "buildingId": "ignat-kaneff",
+      "name": "IKB 2001",
+      "number": "2001",
+      "tempC": 26.5,
+      "humidity": 45,
+      "source": "mock"
+    },
+    {
+      "id": "ignat-kaneff-2002",
+      "buildingId": "ignat-kaneff",
+      "name": "IKB 2002",
+      "number": "2002",
+      "tempC": 26.6,
+      "humidity": 46,
+      "source": "mock"
+    },
+    {
+      "id": "ignat-kaneff-2003",
+      "buildingId": "ignat-kaneff",
+      "name": "IKB 2003",
+      "number": "2003",
+      "tempC": 26.7,
+      "humidity": 47,
+      "source": "mock"
+    },
+    {
+      "id": "ignat-kaneff-3001",
+      "buildingId": "ignat-kaneff",
+      "name": "IKB 3001",
+      "number": "3001",
+      "tempC": 26.6,
+      "humidity": 51,
+      "source": "mock"
+    },
+    {
+      "id": "new-student-centre-101",
+      "buildingId": "new-student-centre",
+      "name": "SSC 101",
+      "number": "101",
+      "tempC": 20.3,
+      "humidity": 43,
+      "source": "mock"
+    },
+    {
+      "id": "new-student-centre-102",
+      "buildingId": "new-student-centre",
+      "name": "SSC 102",
+      "number": "102",
+      "tempC": 20.4,
+      "humidity": 44,
+      "source": "mock"
+    },
+    {
+      "id": "new-student-centre-103",
+      "buildingId": "new-student-centre",
+      "name": "SSC 103",
+      "number": "103",
+      "tempC": 20.5,
+      "humidity": 45,
+      "source": "mock"
+    },
+    {
+      "id": "new-student-centre-201",
+      "buildingId": "new-student-centre",
+      "name": "SSC 201",
+      "number": "201",
+      "tempC": 26.4,
+      "humidity": 59,
+      "source": "mock"
+    },
+    {
+      "id": "new-student-centre-202",
+      "buildingId": "new-student-centre",
+      "name": "SSC 202",
+      "number": "202",
+      "tempC": 26.5,
+      "humidity": 60,
+      "source": "mock"
+    },
+    {
+      "id": "new-student-centre-203",
+      "buildingId": "new-student-centre",
+      "name": "SSC 203",
+      "number": "203",
+      "tempC": 26.6,
+      "humidity": 61,
+      "source": "mock"
+    },
+    {
+      "id": "new-student-centre-301",
+      "buildingId": "new-student-centre",
+      "name": "SSC 301",
+      "number": "301",
+      "tempC": 23.5,
+      "humidity": 40,
+      "source": "mock"
+    },
+    {
+      "id": "new-student-centre-302",
+      "buildingId": "new-student-centre",
+      "name": "SSC 302",
+      "number": "302",
+      "tempC": 23.6,
+      "humidity": 41,
+      "source": "mock"
+    },
+    {
+      "id": "pond-road-residences-101",
+      "buildingId": "pond-road-residences",
+      "name": "PRR 101",
+      "number": "101",
+      "tempC": 22.5,
+      "humidity": 60,
+      "source": "mock"
+    },
+    {
+      "id": "pond-road-residences-201",
+      "buildingId": "pond-road-residences",
+      "name": "PRR 201",
+      "number": "201",
+      "tempC": 28.6,
+      "humidity": 41,
+      "source": "mock"
+    },
+    {
+      "id": "pond-road-residences-301",
+      "buildingId": "pond-road-residences",
+      "name": "PRR 301",
+      "number": "301",
+      "tempC": 25.7,
+      "humidity": 57,
+      "source": "mock"
+    },
+    {
+      "id": "observatory-001",
+      "buildingId": "observatory",
+      "name": "OBS 001",
+      "number": "001",
+      "tempC": 25.8,
+      "humidity": 43,
+      "source": "mock"
+    },
+    {
+      "id": "observatory-002",
+      "buildingId": "observatory",
+      "name": "OBS 002",
+      "number": "002",
+      "tempC": 25.9,
+      "humidity": 44,
+      "source": "mock"
+    },
+    {
+      "id": "executive-learning-centre-a",
+      "buildingId": "executive-learning-centre",
+      "name": "ELC A",
+      "number": "A",
+      "tempC": 25.9,
+      "humidity": 44,
+      "source": "mock"
+    },
+    {
+      "id": "executive-learning-centre-b",
+      "buildingId": "executive-learning-centre",
+      "name": "ELC B",
+      "number": "B",
+      "tempC": 26,
+      "humidity": 45,
+      "source": "mock"
+    },
+    {
+      "id": "executive-learning-centre-c",
+      "buildingId": "executive-learning-centre",
+      "name": "ELC C",
+      "number": "C",
+      "tempC": 26.1,
+      "humidity": 46,
+      "source": "mock"
+    },
+    {
+      "id": "executive-learning-centre-d",
+      "buildingId": "executive-learning-centre",
+      "name": "ELC D",
+      "number": "D",
+      "tempC": 26.2,
+      "humidity": 47,
+      "source": "mock"
+    },
+    {
+      "id": "executive-learning-centre-101",
+      "buildingId": "executive-learning-centre",
+      "name": "ELC 101",
+      "number": "101",
+      "tempC": 21.4,
+      "humidity": 59,
+      "source": "mock"
+    },
+    {
+      "id": "executive-learning-centre-102",
+      "buildingId": "executive-learning-centre",
+      "name": "ELC 102",
+      "number": "102",
+      "tempC": 21.5,
+      "humidity": 60,
+      "source": "mock"
+    },
+    {
+      "id": "executive-learning-centre-201",
+      "buildingId": "executive-learning-centre",
+      "name": "ELC 201",
+      "number": "201",
+      "tempC": 27.5,
+      "humidity": 40,
+      "source": "mock"
+    },
+    {
+      "id": "executive-learning-centre-202",
+      "buildingId": "executive-learning-centre",
+      "name": "ELC 202",
+      "number": "202",
+      "tempC": 27.6,
+      "humidity": 41,
+      "source": "mock"
+    }
   ]
 }

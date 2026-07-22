@@ -1,7 +1,7 @@
 import { Pressable, StyleSheet, Text, View } from "react-native";
 import { useCampusData } from "../hooks/useCampusData";
-import { isOverheat } from "../lib/types";
-import { LIVE_ROOM_ID, THRESHOLD_C } from "../lib/firebase";
+import { useAuth } from "../lib/auth-context";
+import { isOverheat, LIVE_ROOM_ID, THRESHOLD_C } from "../lib/types";
 
 type Props = {
   roomId: string;
@@ -10,6 +10,7 @@ type Props = {
 
 export function RoomDetailScreen({ roomId, onBack }: Props) {
   const { buildings, rooms, latest } = useCampusData();
+  const { profile, toggleFavourite } = useAuth();
   const room = rooms.find((r) => r.id === roomId);
   const building = buildings.find((b) => b.id === room?.buildingId);
 
@@ -18,6 +19,8 @@ export function RoomDetailScreen({ roomId, onBack }: Props) {
   const hum =
     roomId === LIVE_ROOM_ID && latest?.h != null ? latest.h : room?.humidity;
   const hot = temp != null ? isOverheat(temp) : false;
+
+  const isFav = (profile?.favouriteRoomIds ?? []).includes(roomId);
 
   if (!room) {
     return (
@@ -33,12 +36,19 @@ export function RoomDetailScreen({ roomId, onBack }: Props) {
   return (
     <View style={styles.root}>
       <Pressable onPress={onBack}>
-        <Text style={styles.back}>← Campus map</Text>
+        <Text style={styles.back}>← Back</Text>
       </Pressable>
-      <Text style={styles.eyebrow}>{building?.name ?? "Building"}</Text>
-      <Text style={styles.title}>
-        {building?.code} {room.number}
-      </Text>
+      <View style={styles.titleRow}>
+        <View style={{ flex: 1 }}>
+          <Text style={styles.eyebrow}>{building?.name ?? "Building"}</Text>
+          <Text style={styles.title}>
+            {building?.code} {room.number}
+          </Text>
+        </View>
+        <Pressable style={styles.favBtn} onPress={() => toggleFavourite(roomId)}>
+          <Text style={styles.favStar}>{isFav ? "★" : "☆"}</Text>
+        </Pressable>
+      </View>
       <Text style={styles.sub}>{room.name}</Text>
 
       <View style={[styles.card, hot ? styles.cardHot : styles.cardOk]}>
@@ -55,8 +65,13 @@ export function RoomDetailScreen({ roomId, onBack }: Props) {
         Source:{" "}
         {room.source === "live"
           ? "live Grove sensor via USB bridge"
-          : "mock campus data"}
+          : "mock campus data (no live sensor)"}
       </Text>
+      {room.source !== "live" ? (
+        <Text style={styles.noHistory}>
+          Temperature history is only available for rooms with a live sensor.
+        </Text>
+      ) : null}
     </View>
   );
 }
@@ -64,6 +79,7 @@ export function RoomDetailScreen({ roomId, onBack }: Props) {
 const styles = StyleSheet.create({
   root: { flex: 1, backgroundColor: "#e8efe8", paddingTop: 56, paddingHorizontal: 20 },
   back: { color: "#1f6b4a", fontWeight: "700", marginBottom: 18 },
+  titleRow: { flexDirection: "row", alignItems: "flex-start", justifyContent: "space-between" },
   eyebrow: {
     textTransform: "uppercase",
     letterSpacing: 1,
@@ -73,6 +89,8 @@ const styles = StyleSheet.create({
   },
   title: { fontSize: 32, fontWeight: "700", color: "#154c35", marginTop: 4 },
   sub: { color: "#5c6b64", marginTop: 4, marginBottom: 20 },
+  favBtn: { padding: 8 },
+  favStar: { fontSize: 28, color: "#1f6b4a" },
   card: {
     borderRadius: 16,
     padding: 20,
@@ -90,4 +108,5 @@ const styles = StyleSheet.create({
   meta: { marginTop: 6, color: "#5c6b64" },
   status: { marginTop: 14, fontWeight: "800", letterSpacing: 1 },
   note: { marginTop: 18, color: "#5c6b64", fontSize: 13, lineHeight: 18 },
+  noHistory: { marginTop: 8, color: "#8a968f", fontSize: 13, fontStyle: "italic" },
 });

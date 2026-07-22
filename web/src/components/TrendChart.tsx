@@ -28,7 +28,9 @@ export function TrendChart({ history }: Props) {
       <p className="eyebrow">Last hour trend</p>
       <h2 className="section-title mt-1">Temperature history</h2>
       <p className="mt-1 text-sm text-[var(--muted)]">
-        Leave the bridge running before class to fill this chart for the demo.
+        {data.length === 0
+          ? "Leave the bridge running to fill this chart."
+          : `${data.length} live samples in the last hour.`}
       </p>
       <div className="mt-4 h-64 w-full">
         {data.length === 0 ? (
